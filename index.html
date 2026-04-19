@@ -1,13 +1,87 @@
 <!DOCTYPE html>
-<html lang="hu">
-    <head>
-        <meta charset="utf-8">
-        <meta name="robots" content="noindex">
-        <title>Hímzés Wiki</title>
-        <link rel="stylesheet" href="./style.css">
-    </head>
-    <body>
-        <script src="./script.js" async defer></script>
-        "Basic site"
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patch Library</title>
+  <meta name="description" content="Internal collection of embroidery patch designs and techniques">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <img src="./icon.png" alt="Patch Library Logo" class="logo-image">
+        <span class="logo-text">Patch Library</span>
+      </div>
+
+      <div class="search-container">
+        <div class="search-wrapper">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+          <input type="text" id="search-input" class="search-input" placeholder="Search designs, techniques...">
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#designs" class="nav-link active">Designs</a>
+        <a href="#techniques" class="nav-link">Techniques</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="stats-grid">
+      <div class="stat-card">
+        <p class="stat-label">Total Designs</p>
+        <p class="stat-value" id="stat-designs">0</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Techniques</p>
+        <p class="stat-value" id="stat-techniques">0</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Categories</p>
+        <p class="stat-value" id="stat-categories">0</p>
+      </div>
+    </section>
+
+    <section id="designs">
+      <div class="section-header">
+        <h2 class="section-title">Design Collection</h2>
+        <div class="filter-buttons" id="filter-buttons">
+          <!-- Filter buttons generated dynamically from JS -->
+        </div>
+      </div>
+      <div class="patch-grid" id="patch-grid"></div>
+    </section>
+
+    <section id="techniques">
+      <div class="section-header">
+        <h2 class="section-title">Technique Reference</h2>
+      </div>
+      <div class="technique-grid" id="technique-grid"></div>
+    </section>
+  </main>
+
+  <!-- Technique Detail Modal -->
+  <div class="modal-overlay" id="technique-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div class="modal-body" id="modal-body">
+        <!-- Content populated dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Viewer Modal -->
+  <div class="image-viewer-overlay" id="image-viewer">
+    <button class="image-viewer-close" id="image-viewer-close">&times;</button>
+    <img src="" alt="Full size image" class="image-viewer-img" id="image-viewer-img">
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
