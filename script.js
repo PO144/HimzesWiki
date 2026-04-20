@@ -1,351 +1,16 @@
 /**
  * ============================================================================
- * PATCH LIBRARY - Configuration & Content File
+ * PATCH LIBRARY - Functional Script
  * ============================================================================
  *
- * This file contains all editable content for the Patch Library website.
- * Edit the arrays below to add, remove, or modify content.
- *
- * STRUCTURE:
- * 1. CATEGORIES - List of patch categories (filter buttons auto-generate)
- * 2. TECHNIQUES - Technique definitions with steps and images
- * 3. PATCHES - Patch definitions with all properties
- *
- * FIXED OPTIONS:
- * - Difficulty levels: "Beginner", "Intermediate", "Advanced"
- *   (These have predefined color styling in CSS)
- *
- * JUMP WITHIN THE FILE: (Ctrl+F jump)
- * Categories: CATEGORIES-JMP
- * Techniques: TECHNIQUES-JMP
- * Patches: PATCHES-JMP
+ * This file contains the functional part of the website.
+ * Edit config.js for categories, techniques and patches.
  *
  * ============================================================================
  */
-
-// ============================================================================
-// CATEGORIES-JMP
-// ============================================================================
-// Add or remove categories here. Filter buttons will automatically update.
-// The "All" filter is always included automatically.
-
-const categories = [
-  "Kat1", "Kat2"
-];
-
-// ============================================================================
-// TECHNIQUES-JMP
-// ============================================================================
-// Each technique has:
-// - name: Display name (required)
-// - description: Short description shown in the card (required)
-// - demoImage: Path to demonstrator image (required)
-// - steps: Array of step objects (required, can be empty [])
-//   Each step has:
-//   - name: Step title (required)
-//   - description: Step description (optional, can be "" or omitted)
-//   - images: Array of image paths, max 2 (optional, can be [] or omitted)
-
-const techniques = [
-  {
-    name: "Satin Stitch",
-    description: "Parallel stitches creating smooth, filled areas",
-    demoImage: "./images/techniques/satin-stitch.jpg",
-    steps: [
-      {
-        name: "Prepare Your Fabric",
-        description: "Secure your fabric in an embroidery hoop, keeping it taut but not overstretched. Mark your shape outline with a water-soluble marker.Secure your fabric in an embroidery hoop, keeping it taut but not overstretched. Mark your shape outline with a water-soluble marker.Secure your fabric in an embroidery hoop, keeping it taut but not overstretched. Mark your shape outline with a water-soluble marker.Secure your fabric in an embroidery hoop, keeping it taut but not overstretched. Mark your shape outline with a water-soluble marker.Secure your fabric in an embroidery hoop, keeping it taut but not overstretched. Mark your shape outline with a water-soluble marker.Secure your fabric in an embroidery hoop, keeping it taut but not overstretched. Mark your shape outline with a water-soluble marker.",
-        images: ["./images/techniques/satin-step1a.png", "./images/techniques/satin-step1b.jpg"]
-      },
-      {
-        name: "Start at the Edge",
-        description: "Bring your needle up at one edge of the shape. Pull the thread through completely.",
-        images: ["./images/techniques/satin-step2.jpg"]
-      },
-      {
-        name: "Create Parallel Lines",
-        description: "Insert the needle directly across on the opposite edge. Bring it back up right next to your first stitch. Keep stitches close together with no gaps.",
-        images: []
-      },
-      {
-        name: "Create Parallel Lines",
-        description: "Insert the needle directly across on the opposite edge. Bring it back up right next to your first stitch. Keep stitches close together with no gaps.",
-        images: []
-      },
-      {
-        name: "Create Parallel Lines",
-        description: "Insert the needle directly across on the opposite edge. Bring it back up right next to your first stitch. Keep stitches close together with no gaps.",
-        images: []
-      },
-      {
-        name: "Create Parallel Lines",
-        description: "Insert the needle directly across on the opposite edge. Bring it back up right next to your first stitch. Keep stitches close together with no gaps.",
-        images: []
-      },
-      {
-        name: "Create Parallel Lines",
-        description: "Insert the needle directly across on the opposite edge. Bring it back up right next to your first stitch. Keep stitches close together with no gaps.",
-        images: []
-      },
-      {
-        name: "Create Parallel Lines",
-        description: "Insert the needle directly across on the opposite edge. Bring it back up right next to your first stitch. Keep stitches close together with no gaps.",
-        images: []
-      },
-      {
-        name: "Create Parallel Lines",
-        description: "Insert the needle directly across on the opposite edge. Bring it back up right next to your first stitch. Keep stitches close together with no gaps.",
-        images: []
-      },
-      {
-        name: "Maintain Tension",
-        description: "Keep consistent tension throughout. Stitches should lie flat without puckering the fabric.",
-        images: []
-      }
-    ]
-  },
-  {
-    name: "French Knots",
-    description: "Small, textured dots for detail work",
-    demoImage: "./images/techniques/french-knots.jpg",
-    steps: [
-      {
-        name: "Bring Needle Up",
-        description: "Come up through the fabric at the point where you want the knot.",
-        images: []
-      },
-      {
-        name: "Wrap the Thread",
-        description: "Hold the thread taut with your non-dominant hand. Wrap the thread around the needle 2-3 times.",
-        images: ["./images/techniques/french-step2.jpg"]
-      },
-      {
-        name: "Insert and Pull",
-        description: "Insert the needle very close to (but not in) the original hole. Hold the wraps in place as you pull the thread through to the back.",
-        images: []
-      }
-    ]
-  },
-  {
-    name: "Stem Stitch",
-    description: "Rope-like line for outlines and stems",
-    demoImage: "./images/techniques/stem-stitch.jpg",
-    steps: [
-      {
-        name: "Start Your Line",
-        description: "Bring the needle up at the start of your line.",
-        images: []
-      },
-      {
-        name: "Create First Stitch",
-        description: "Insert the needle a short distance ahead, then bring it back up halfway between the start and end points, keeping thread below the needle.",
-        images: []
-      },
-      {
-        name: "Continue the Pattern",
-        description: "Repeat, always keeping the thread on the same side. Each new stitch starts from the middle of the previous one.",
-        images: []
-      }
-    ]
-  },
-  {
-    name: "Backstitch",
-    description: "Strong, continuous line stitch",
-    demoImage: "./images/techniques/backstitch.jpg",
-    steps: [
-      {
-        name: "First Stitch",
-        description: "Come up one stitch length from your starting point. Go back down at the start.",
-        images: []
-      },
-      {
-        name: "Continue Backward",
-        description: "Come up one stitch length ahead, then go back down where your last stitch ended. This creates a continuous line.",
-        images: []
-      }
-    ]
-  },
-  {
-    name: "Chain Stitch",
-    description: "Looped chain for decorative lines",
-    demoImage: "./images/techniques/chain-stitch.jpg",
-    steps: [
-      {
-        name: "Create First Loop",
-        description: "Bring needle up and insert it back in the same hole, leaving a loop. Come up a stitch length away, catching the loop.",
-        images: []
-      },
-      {
-        name: "Build the Chain",
-        description: "Insert the needle inside the previous loop and repeat. Each loop catches the next.",
-        images: []
-      }
-    ]
-  },
-  {
-    name: "Lazy Daisy",
-    description: "Petal-shaped loops for flowers",
-    demoImage: "./images/techniques/lazy-daisy.jpg",
-    steps: [
-      {
-        name: "Create Petal Loop",
-        description: "Like chain stitch, but each loop is anchored with a small stitch at the tip.",
-        images: []
-      },
-      {
-        name: "Arrange Petals",
-        description: "Create multiple petals radiating from a center point to form a flower.",
-        images: []
-      }
-    ]
-  },
-  {
-    name: "Long & Short Stitch",
-    description: "Blended gradients and shading",
-    demoImage: "./images/techniques/long-short.jpg",
-    steps: [
-      {
-        name: "First Row",
-        description: "Create alternating long and short satin stitches along the edge of your shape.",
-        images: []
-      },
-      {
-        name: "Subsequent Rows",
-        description: "Fill in with stitches that blend into the previous row. Vary lengths to create smooth transitions.",
-        images: []
-      },
-      {
-        name: "Color Blending",
-        description: "Change thread colors between rows for gradient effects. Blend where colors meet.",
-        images: []
-      }
-    ]
-  },
-  {
-    name: "Split Stitch",
-    description: "Fine lines with subtle texture",
-    demoImage: "./images/techniques/split-stitch.jpg",
-    steps: [
-      {
-        name: "First Stitch",
-        description: "Create a single straight stitch.",
-        images: []
-      },
-      {
-        name: "Split the Thread",
-        description: "Bring the needle up through the middle of the previous stitch, splitting the thread fibers.",
-        images: []
-      },
-      {
-        name: "Continue Pattern",
-        description: "Each new stitch splits the one before it, creating a braided appearance.",
-        images: []
-      }
-    ]
-  },
-  {
-    name: "Running Stitch",
-    description: "Simple dashed line stitch",
-    demoImage: "./images/techniques/running-stitch.jpg",
-    steps: [
-      {
-        name: "Weave Through Fabric",
-        description: "Pass the needle in and out of the fabric at regular intervals, creating evenly spaced dashes.",
-        images: []
-      },
-      {
-        name: "Keep Consistent",
-        description: "Maintain equal stitch and gap lengths for a clean appearance.",
-        images: []
-      }
-    ]
-  }
-];
-
-// ============================================================================
-// PATCHES-JMP
-// ============================================================================
-// Each patch has:
-// - title: Display name (required)
-// - description: Short description (required)
-// - image: Path to patch image (required)
-// - category: Must match one from categories array above (required)
-// - difficulty: "Beginner", "Intermediate", or "Advanced" (required)
-// - techniques: Array of technique names - must match names in techniques array (required)
-// - link: External URL (optional - if set, shows a link button)
-
-const patches = [
-  {
-    title: "Mountain Landscape",
-    description: "Vintage-style mountain scene with pine trees using varied stitch techniques for depth and texture.",
-    image: "./images/patch-1.jpg",
-    category: "Nature",
-    difficulty: "Intermediate",
-    techniques: ["Satin Stitch", "French Knots", "Long & Short Stitch"],
-    link: ""
-  },
-  {
-    title: "Wildflower Botanical",
-    description: "Delicate botanical illustration featuring wildflowers and leaves with intricate detail work.",
-    image: "./images/patch-2.jpg",
-    category: "Botanical",
-    difficulty: "Beginner",
-    techniques: ["Stem Stitch", "Lazy Daisy", "Backstitch"],
-    link: "https://example.com/wildflower-pattern"
-  },
-  {
-    title: "Celestial Moon",
-    description: "Crescent moon and stars design with metallic accents for a mystical aesthetic.",
-    image: "./images/patch-3.jpg",
-    category: "Celestial",
-    difficulty: "Intermediate",
-    techniques: ["Chain Stitch", "Backstitch", "Satin Stitch"],
-    link: ""
-  },
-  {
-    title: "Geometric Abstract",
-    description: "Modern minimalist design with clean geometric shapes and balanced composition.",
-    image: "./images/patch-4.jpg",
-    category: "Abstract",
-    difficulty: "Beginner",
-    techniques: ["Running Stitch", "Backstitch", "Satin Stitch"],
-    link: ""
-  },
-  {
-    title: "Vintage Bee",
-    description: "Realistic bee embroidery with detailed wing work and dimensional body texture.",
-    image: "./images/patch-5.jpg",
-    category: "Nature",
-    difficulty: "Advanced",
-    techniques: ["French Knots", "Long & Short Stitch", "Satin Stitch"],
-    link: "https://example.com/bee-tutorial"
-  },
-  {
-    title: "Japanese Waves",
-    description: "Ocean waves in traditional Japanese style with flowing water patterns and movement.",
-    image: "./images/patch-6.jpg",
-    category: "Abstract",
-    difficulty: "Advanced",
-    techniques: ["Split Stitch", "Satin Stitch", "Stem Stitch"],
-    link: ""
-  },
-  {
-    title: "Some bullshit",
-    description: "Bullshit with fur.",
-    image: "./images/bullshit.jpeg",
-    category: "Bullshit",
-    difficulty: "Advanced",
-    techniques: ["Split Stitch", "Satin Stitch", "Stem Stitch"],
-    link: ""
-  }
-];
-
-// ============================================================================
-// APPLICATION CODE - Do not edit below unless you know what you're doing
-// ============================================================================
-
 let currentFilter = "All";
 let searchQuery = "";
+let viewMode = "gallery"; // "grid", "gallery", or "list"
 
 // Get technique count for a specific technique
 function getTechniqueCount(techniqueName) {
@@ -367,15 +32,19 @@ function findTechnique(name) {
   return techniques.find(t => t.name === name);
 }
 
+function findNote(name) {
+  return notes.find(note => note.name === name);
+}
+
 // Render filter buttons dynamically from categories array
 function renderFilterButtons() {
   const container = document.getElementById("filter-buttons");
   const allCategories = ["All", ...categories];
-
+  
   container.innerHTML = allCategories.map(cat => `
     <button class="filter-btn ${cat === currentFilter ? 'active' : ''}" data-category="${cat}">${cat}</button>
   `).join("");
-
+  
   // Attach event listeners
   container.querySelectorAll(".filter-btn").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -387,6 +56,9 @@ function renderFilterButtons() {
 // Render patches grid
 function renderPatches() {
   const grid = document.getElementById("patch-grid");
+  
+  // Update grid class based on view mode
+  grid.className = `patch-grid patch-grid--${viewMode}`;
 
   const filtered = patches.filter(patch => {
     const matchesCategory = currentFilter === "All" || patch.category === currentFilter;
@@ -407,10 +79,9 @@ function renderPatches() {
   }
 
   grid.innerHTML = filtered.map(patch => `
-    <article class="patch-card" data-category="${patch.category}">
+    <article class="patch-card patch-card--${viewMode}" data-category="${patch.category}">
       <div class="patch-image-container" onclick="openImageViewer('${patch.image}')">
         <img src="${patch.image}" alt="${patch.title}" class="patch-image" loading="lazy">
-        <span class="difficulty-badge ${getDifficultyClass(patch.difficulty)}">${patch.difficulty}</span>
       </div>
       <div class="patch-content">
         <h3 class="patch-title">${patch.title}</h3>
@@ -433,11 +104,56 @@ function renderPatches() {
   `).join("");
 }
 
+// Render view mode toggle
+function renderViewModeToggle() {
+  const container = document.getElementById("view-mode-toggle");
+  container.innerHTML = `
+    <button class="view-mode-btn ${viewMode === 'grid' ? 'active' : ''}" data-mode="grid" title="Grid view">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7"/>
+        <rect x="14" y="3" width="7" height="7"/>
+        <rect x="14" y="14" width="7" height="7"/>
+        <rect x="3" y="14" width="7" height="7"/>
+      </svg>
+    </button>
+    <button class="view-mode-btn ${viewMode === 'gallery' ? 'active' : ''}" data-mode="gallery" title="Gallery view">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <polyline points="21 15 16 10 5 21"/>
+      </svg>
+    </button>
+    <button class="view-mode-btn ${viewMode === 'list' ? 'active' : ''}" data-mode="list" title="List view">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="8" y1="6" x2="21" y2="6"/>
+        <line x1="8" y1="12" x2="21" y2="12"/>
+        <line x1="8" y1="18" x2="21" y2="18"/>
+        <line x1="3" y1="6" x2="3.01" y2="6"/>
+        <line x1="3" y1="12" x2="3.01" y2="12"/>
+        <line x1="3" y1="18" x2="3.01" y2="18"/>
+      </svg>
+    </button>
+  `;
+  
+  container.querySelectorAll(".view-mode-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      setViewMode(btn.dataset.mode);
+    });
+  });
+}
+
+// Set view mode
+function setViewMode(mode) {
+  viewMode = mode;
+  renderViewModeToggle();
+  renderPatches();
+}
+
 // Render techniques grid
 function renderTechniques() {
   const grid = document.getElementById("technique-grid");
 
-    const filtered = techniques.filter(tech => {
+  const filtered = techniques.filter(tech => {
     if (searchQuery === "") return true;
     const query = searchQuery.toLowerCase();
     return tech.name.toLowerCase().includes(query) ||
@@ -453,14 +169,47 @@ function renderTechniques() {
     return;
   }
 
-
   grid.innerHTML = filtered.map(tech => `
-      <div class="technique-card" onclick="openTechniqueModal('${tech.name}')">
+    <div class="technique-card" onclick="openTechniqueModal('${tech.name}')">
+      <span class="difficulty-badge ${getDifficultyClass(tech.difficulty)}">${tech.difficulty}</span>
       <img src="${tech.demoImage}" alt="${tech.name}" class="technique-thumb" onerror="this.style.display='none'">
       <div class="technique-info">
         <h4 class="technique-name">${tech.name}</h4>
         <p class="technique-description">${tech.description}</p>
         <span class="technique-count">${getTechniqueCount(tech.name)} design${getTechniqueCount(tech.name) !== 1 ? "s" : ""}</span>
+      </div>
+    </div>
+  `).join("");
+}
+
+//Render notes
+function renderNotes() {
+  const grid = document.getElementById("notes-grid");
+  if (!grid) return;
+
+  const filtered = notes.filter(note => {
+    if (searchQuery === "") return true;
+    const query = searchQuery.toLowerCase();
+    return note.name.toLowerCase().includes(query) ||
+           note.description.toLowerCase().includes(query);
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state" style="grid-column: 1 / -1;">
+        <p>No notes found matching your search.</p>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(note => `
+    <div class="technique-card" onclick="openNoteModal('${note.name.replace(/'/g, "\\'")}')">
+      <img src="${note.demoImage}" alt="${note.name}" class="technique-thumb" onerror="this.style.display='none'">
+      <div class="technique-info">
+        <h4 class="technique-name">${note.name}</h4>
+        <p class="technique-description">${note.description}</p>
+        <span class="technique-count">Note</span>
       </div>
     </div>
   `).join("");
@@ -514,8 +263,56 @@ function openTechniqueModal(techniqueName) {
     <div class="modal-header">
       <img src="${technique.demoImage}" alt="${technique.name}" class="modal-demo-image" onclick="openImageViewer('${technique.demoImage}')" onerror="this.style.display='none'">
       <div class="modal-title-section">
-        <h2 class="modal-title">${technique.name}</h2>
+        <div class="modal-title-row">
+          <h2 class="modal-title">${technique.name}</h2>
+          <span class="difficulty-badge ${getDifficultyClass(technique.difficulty)}">${technique.difficulty}</span>
+        </div>
         <p class="modal-subtitle">${technique.description}</p>
+      </div>
+    </div>
+    ${stepsHtml}
+  `;
+
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+//Open note modal
+function openNoteModal(noteName) {
+  const note = findNote(noteName);
+  if (!note) return;
+
+  const modal = document.getElementById("technique-modal");
+  const body = document.getElementById("modal-body");
+
+  const stepsHtml = note.steps.length > 0 ? `
+    <div class="modal-steps">
+      <h3 class="modal-steps-title">Step-by-Step Guide</h3>
+      ${note.steps.map((step, index) => `
+        <div class="step-item">
+          <div class="step-header">
+            <span class="step-number">${index + 1}</span>
+            <span class="step-name">${step.name}</span>
+          </div>
+          ${step.description ? `<p class="step-description">${step.description}</p>` : ''}
+          ${step.images && step.images.length > 0 ? `
+            <div class="step-images">
+              ${step.images.slice(0, 2).map(img => `
+                <img src="${img}" alt="Step ${index + 1}" class="step-image" onclick="openImageViewer('${img}')" onerror="this.style.display='none'">
+              `).join("")}
+            </div>
+          ` : ''}
+        </div>
+      `).join("")}
+    </div>
+  ` : '';
+
+  body.innerHTML = `
+    <div class="modal-header">
+      <img src="${note.demoImage}" alt="${note.name}" class="modal-demo-image" onclick="openImageViewer('${note.demoImage}')" onerror="this.style.display='none'">
+      <div class="modal-title-section">
+        <h2 class="modal-title">${note.name}</h2>
+        <p class="modal-subtitle">${note.description}</p>
       </div>
     </div>
     ${stepsHtml}
@@ -552,8 +349,10 @@ function closeImageViewer() {
 function init() {
   updateStats();
   renderFilterButtons();
+  renderViewModeToggle();
   renderPatches();
   renderTechniques();
+  renderNotes();
 
   // Search functionality
   const searchInput = document.getElementById("search-input");
@@ -561,11 +360,12 @@ function init() {
     searchQuery = e.target.value;
     renderPatches();
     renderTechniques();
+    renderNotes();
   });
 
   // Modal close button
   document.getElementById("modal-close").addEventListener("click", closeTechniqueModal);
-
+  
   // Close modal on overlay click
   document.getElementById("technique-modal").addEventListener("click", (e) => {
     if (e.target.id === "technique-modal") {
@@ -598,7 +398,7 @@ function init() {
       if (target) {
         target.scrollIntoView({ behavior: "smooth" });
       }
-
+      
       // Update active state
       document.querySelectorAll(".nav-link").forEach(l => l.classList.remove("active"));
       link.classList.add("active");

@@ -42,6 +42,12 @@ body {
   gap: 2rem;
 }
 
+#designs,
+#techniques,
+#notes {
+  scroll-margin-top: 6.5rem;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -49,7 +55,7 @@ body {
 }
 
 .logo-image {
-  height: 1.8rem;
+  height: 2rem;
   width: auto;
 }
 
@@ -167,6 +173,13 @@ body {
   letter-spacing: -0.025em;
 }
 
+.section-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 /* Filter Buttons */
 .filter-buttons {
   display: flex;
@@ -175,6 +188,10 @@ body {
 }
 
 .filter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.25rem;
   padding: 0.375rem 0.875rem;
   font-size: 0.8125rem;
   border: 1px solid var(--border);
@@ -196,12 +213,67 @@ body {
   border-color: var(--foreground);
 }
 
+/* View Mode Toggle */
+.view-mode-toggle {
+  display: flex;
+  height: 2.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.view-mode-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 100%;
+  flex: 0 0 2.25rem;
+  background-color: var(--card);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  color: var(--muted-foreground);
+}
+
+.view-mode-btn:not(:last-child) {
+  border-right: 1px solid var(--border);
+}
+
+.view-mode-btn:hover {
+  background-color: var(--muted);
+  color: var(--foreground);
+}
+
+.view-mode-btn.active {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.view-mode-btn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
 /* Patch Grid */
 .patch-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.25rem;
   margin-bottom: 3rem;
+}
+
+/* Gallery View - Masonry-like with full images */
+.patch-grid--gallery {
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* List View - Single column rows */
+.patch-grid--list {
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 .patch-card {
@@ -234,6 +306,83 @@ body {
 
 .patch-card:hover .patch-image {
   transform: scale(1.03);
+}
+
+/* Gallery View Card Styles */
+.patch-card--gallery .patch-image-container {
+  aspect-ratio: auto;
+}
+
+.patch-card--gallery .patch-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 520px;
+}
+
+.patch-card--gallery .patch-content {
+  padding: 0.75rem 0.75rem 0.875rem;
+}
+
+.patch-card--gallery .patch-title {
+  font-size: 0.8125rem;
+  margin-bottom: 0.25rem;
+}
+
+.patch-card--gallery .patch-description {
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  margin-bottom: 0.45rem;
+}
+
+.patch-card--gallery .patch-techniques {
+  gap: 0.3125rem;
+  margin-bottom: 0.45rem;
+}
+
+.patch-card--gallery .technique-tag {
+  font-size: 0.625rem;
+  padding: 0.1875rem 0.4375rem;
+}
+
+/* List View Card Styles */
+.patch-card--list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.patch-card--list .patch-image-container {
+  width: 220px;
+  min-width: 220px;
+  aspect-ratio: auto;
+  height: 190px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.patch-card--list .patch-image {
+  object-fit: cover;
+}
+
+.patch-card--list .patch-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.25rem 1.5rem;
+  flex: 1;
+}
+
+.patch-card--list .patch-link-btn {
+  width: 8.5rem;
+  justify-content: center;
+  align-self: flex-start;
+}
+
+.patch-card--list .patch-description {
+  margin-bottom: 0.5rem;
 }
 
 .difficulty-badge {
@@ -333,7 +482,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .technique-card {
@@ -345,11 +494,18 @@ body {
   gap: 1rem;
   cursor: pointer;
   transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
 }
 
 .technique-card:hover {
   border-color: var(--accent);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.technique-card .difficulty-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
 .technique-thumb {
@@ -470,11 +626,23 @@ body {
   min-width: 200px;
 }
 
+.modal-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
 .modal-title {
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
   letter-spacing: -0.025em;
+}
+
+.modal-title-row .difficulty-badge {
+  position: static;
 }
 
 .modal-subtitle {
@@ -645,10 +813,29 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .section-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .patch-card--list {
+    flex-direction: column;
+  }
+
+  .patch-card--list .patch-image-container {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
   .modal-header {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  .modal-title-row {
+    justify-content: center;
   }
 
   .modal-demo-image {

@@ -29,6 +29,7 @@
       <nav class="nav-links">
         <a href="#designs" class="nav-link active">Designs</a>
         <a href="#techniques" class="nav-link">Techniques</a>
+        <a href="#notes" class="nav-link">Notes/Tips</a>
       </nav>
     </div>
   </header>
@@ -52,8 +53,13 @@
     <section id="designs">
       <div class="section-header">
         <h2 class="section-title">Design Collection</h2>
-        <div class="filter-buttons" id="filter-buttons">
-          <!-- Filter buttons generated dynamically from JS -->
+        <div class="section-controls">
+          <div class="filter-buttons" id="filter-buttons">
+            <!-- Filter buttons generated dynamically from JS -->
+          </div>
+          <div class="view-mode-toggle" id="view-mode-toggle">
+            <!-- View mode buttons generated dynamically from JS -->
+          </div>
         </div>
       </div>
       <div class="patch-grid" id="patch-grid"></div>
@@ -65,6 +71,14 @@
       </div>
       <div class="technique-grid" id="technique-grid"></div>
     </section>
+  
+    <section id="notes">
+      <div class="section-header">
+        <h2 class="section-title">Notes/Tips</h2>
+      </div>
+      <div class="technique-grid" id="notes-grid"></div>
+    </section>
+  
   </main>
 
   <!-- Technique Detail Modal -->
@@ -83,6 +97,7 @@
     <img src="" alt="Full size image" class="image-viewer-img" id="image-viewer-img">
   </div>
 
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
