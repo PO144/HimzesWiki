@@ -219,7 +219,7 @@ function renderNotes() {
 function updateStats() {
   document.getElementById("stat-designs").textContent = patches.length;
   document.getElementById("stat-techniques").textContent = techniques.length;
-  document.getElementById("stat-categories").textContent = categories.length;
+  document.getElementById("stat-notes").textContent = notes.length;
 }
 
 // Set active filter
