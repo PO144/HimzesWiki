@@ -14,7 +14,7 @@
  * FIXED OPTIONS:
  * - Difficulty levels: "Beginner", "Intermediate", "Advanced"
  *   (These have predefined color styling in CSS)
- * 
+ *
  * JUMP WITHIN THE FILE: (Ctrl+F jump)
  * Categories: CATEGORIES-JMP
  * Techniques: TECHNIQUES-JMP
@@ -437,8 +437,25 @@ function renderPatches() {
 function renderTechniques() {
   const grid = document.getElementById("technique-grid");
 
-  grid.innerHTML = techniques.map(tech => `
-    <div class="technique-card" onclick="openTechniqueModal('${tech.name}')">
+    const filtered = techniques.filter(tech => {
+    if (searchQuery === "") return true;
+    const query = searchQuery.toLowerCase();
+    return tech.name.toLowerCase().includes(query) ||
+           tech.description.toLowerCase().includes(query);
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state" style="grid-column: 1 / -1;">
+        <p>No techniques found matching your search.</p>
+      </div>
+    `;
+    return;
+  }
+
+
+  grid.innerHTML = filtered.map(tech => `
+      <div class="technique-card" onclick="openTechniqueModal('${tech.name}')">
       <img src="${tech.demoImage}" alt="${tech.name}" class="technique-thumb" onerror="this.style.display='none'">
       <div class="technique-info">
         <h4 class="technique-name">${tech.name}</h4>
@@ -543,6 +560,7 @@ function init() {
   searchInput.addEventListener("input", (e) => {
     searchQuery = e.target.value;
     renderPatches();
+    renderTechniques();
   });
 
   // Modal close button
