@@ -131,4 +131,4 @@ Can you change the categories counter on the top to count the number of notes?
 
 ---
 
-<sub>Built with [README Builder](https://ofershap.github.io/readme-builder/) — visual drag-and-drop editor for GitHub READMEs</sub>
+<sub>Built with [README Builder](https://ofershap.github.io/readme-builder/)</sub>
