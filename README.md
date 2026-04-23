@@ -131,4 +131,18 @@ Can you change the categories counter on the top to count the number of notes?
 
 ---
 
+#### To do/to add:
+
+- [ ] Tű csere + minden amit a tűkről tudni kell
+- [ ] Cérna feszítő rugó szerelés
+- [ ] BSA foltok beimportálása
+- [ ] Kétoldalú-nak kép
+- [ ] Parafa-fal foltok beimportálása
+- [ ] Puffy szivacs tut
+- [ ] Carving stamp tut
+- [ ] Színátmenet tut
+- [ ] General tervezés tippek
+
+---
+
 <sub>Built with [README Builder](https://ofershap.github.io/readme-builder/)</sub>
