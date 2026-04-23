@@ -142,6 +142,7 @@ Can you change the categories counter on the top to count the number of notes?
 - [ ] Carving stamp tut
 - [ ] Színátmenet tut
 - [ ] General tervezés tippek
+- [ ] Jegyzet-tömb kavalkád beimportálása
 
 ---
 
