@@ -143,6 +143,9 @@ Can you change the categories counter on the top to count the number of notes?
 - [ ] Színátmenet tut
 - [ ] General tervezés tippek
 - [ ] Jegyzet-tömb kavalkád beimportálása
+- [ ] Weblap title
+- [ ] Weblap favicon
+- [ ] Other webpage improvements
 
 ---
 
