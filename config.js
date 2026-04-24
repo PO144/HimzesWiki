@@ -46,7 +46,7 @@ const categories = [
 // - category: Must match one from categories array above (required)
 // - techniques: Array of technique names - must match names in techniques array (required)
 // - link: External URL (optional - if set, shows a link button)
-// - additionalImages: Array of image paths, max 10 (optional, can be [])
+// - additionalImages: Array of image/video paths, max 10 (optional, can be [])
 
 const patches = [
   {
@@ -55,7 +55,7 @@ const patches = [
     image: "./content/images/bsa/SCUBA.jpg",
     //KÉP TESZTEK
     //image: "./images/rag_spray.jpg",
-    //image: "./videos/video_2026-04-24_20-37-20.mp4",
+    //image: "./content/videos/video_2026-04-24_20-37-20.mp4",
     category: "Jó design",
     techniques: [],
     link: "https://www.sageventure.com/store/designs/SCUBA.html",
@@ -84,12 +84,12 @@ const patches = [
 //							Intermediate:	requires somewhat higher level of machine/software knowledge, plus some skill and dexterity
 //							Advanced:		requires advanced machine/software knowledge, and a fair amount of skill/dexterity
 // - demoImage: Path to demonstrator image (required)
-// - examples: Array of example image paths, MAX 10 (optional, can be [])
+// - examples: Array of example image/video paths, max 10 (optional, can be [])
 // - steps: Array of step objects (required, can be empty [])
 //   Each step has:
 //   - name: Step title (required)
 //   - description: Step description (optional, can be "" or omitted)
-//   - images: Array of image paths, max 2 (optional, can be [] or omitted)
+//   - images: Array of image/video paths, max 2 (optional, can be [] or omitted)
 
 const techniques = [
   {
@@ -167,7 +167,7 @@ const notes = [
       {
         name: "Step 2",
         description: "Sure is.",
-        images: []
+        images: ["./content/videos/video_2026-04-24_20-37-20.mp4"]
       }
     ]
   }

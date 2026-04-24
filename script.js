@@ -48,6 +48,96 @@ function syncBodyScrollLock() {
   document.body.style.overflow = (techniqueModalOpen || examplesModalOpen || imageViewerOpen) ? "hidden" : "";
 }
 
+//VIDEO SUPPORT BEGIN
+const VIDEO_EXTENSIONS = [".mp4", ".webm", ".ogg", ".mov", ".m4v"];
+const VIDEO_PREVIEW_FALLBACK = "./content/icons/video-placeholder.png";
+const VIDEO_PLAY_BADGE = `
+  <span class="media-preview-badge" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <circle cx="12" cy="12" r="10" opacity="0.92"></circle>
+      <polygon points="10,8 17,12 10,16" fill="white"></polygon>
+    </svg>
+  </span>
+`;
+
+function isVideoPath(path) {
+  const cleanPath = String(path).split("#")[0].split("?")[0].toLowerCase();
+  return VIDEO_EXTENSIONS.some(ext => cleanPath.endsWith(ext));
+}
+
+function getIntrinsicMediaWidth(element) {
+  if (!element) return 0;
+  return element.tagName === "VIDEO" ? element.videoWidth : element.naturalWidth;
+}
+
+function renderCollectionMediaItem(mediaPath, altText) {
+  const escapedPath = escapeForSingleQuotedJsString(mediaPath);
+  const safeAlt = String(altText).replace(/"/g, "&quot;");
+
+  if (isVideoPath(mediaPath)) {
+    return `
+      <div class="examples-gallery-item media-preview media-preview--video" onclick="openMediaViewer('${escapedPath}')">
+        <img src="${VIDEO_PREVIEW_FALLBACK}" alt="" class="video-preview-fallback" aria-hidden="true">
+        <video
+          src="${mediaPath}"
+          class="collection-media collection-media--video"
+          preload="metadata"
+          muted
+          playsinline
+          onloadeddata="this.previousElementSibling.style.display='none'"
+          onerror="this.style.display='none'"
+        ></video>
+        ${VIDEO_PLAY_BADGE}
+      </div>
+    `;
+  }
+
+  return `
+    <div class="examples-gallery-item" onclick="openMediaViewer('${escapedPath}')">
+      <img
+        src="${mediaPath}"
+        alt="${safeAlt}"
+        class="collection-media"
+        loading="lazy"
+        onerror="this.closest('.examples-gallery-item').style.display='none'"
+      >
+    </div>
+  `;
+}
+
+function renderStepMediaPreview(mediaPath, stepIndex) {
+  const escapedPath = escapeForSingleQuotedJsString(mediaPath);
+
+  if (isVideoPath(mediaPath)) {
+    return `
+      <div class="step-media-preview media-preview media-preview--video" onclick="openMediaViewer('${escapedPath}')">
+        <img src="${VIDEO_PREVIEW_FALLBACK}" alt="" class="video-preview-fallback" aria-hidden="true">
+        <video
+          src="${mediaPath}"
+          class="step-image step-image--video"
+          preload="metadata"
+          muted
+          playsinline
+          onloadeddata="this.previousElementSibling.style.display='none'"
+          onerror="this.style.display='none'"
+        ></video>
+        ${VIDEO_PLAY_BADGE}
+      </div>
+    `;
+  }
+
+  return `
+    <img
+      src="${mediaPath}"
+      alt="Step ${stepIndex + 1}"
+      class="step-image"
+      onclick="openMediaViewer('${escapedPath}')"
+      onerror="this.style.display='none'"
+    >
+  `;
+}
+//VIDEO SUPPORT END
+
 function escapeForSingleQuotedJsString(value) {
   return String(value)
     .replace(/\\/g, "\\\\")
@@ -176,33 +266,41 @@ function applyGalleryImageSizing() {
 }
 
 function applyExamplesGallerySizing() {
-  const galleryImages = document.querySelectorAll(".example-image");
+  const galleryMedia = document.querySelectorAll(".collection-media");
 
-  galleryImages.forEach((img) => {
-    const container = img.closest(".examples-gallery-item");
+  galleryMedia.forEach((media) => {
+    const container = media.closest(".examples-gallery-item");
     if (!container) return;
 
-    const updateImageSize = () => {
-      img.classList.remove("example-image--true-size");
-      img.style.width = "";
-      img.style.maxWidth = "";
+    const updateMediaSize = () => {
+      media.classList.remove("collection-media--true-size");
+      media.style.width = "";
+      media.style.maxWidth = "";
 
       const frameWidth = container.clientWidth;
-      const naturalWidth = img.naturalWidth;
+      const intrinsicWidth = getIntrinsicMediaWidth(media);
 
-      if (!frameWidth || !naturalWidth) return;
+      if (!frameWidth || !intrinsicWidth) return;
 
-      if (naturalWidth < frameWidth) {
-        img.classList.add("example-image--true-size");
-        img.style.width = `${naturalWidth}px`;
-        img.style.maxWidth = "100%";
+      if (intrinsicWidth < frameWidth) {
+        media.classList.add("collection-media--true-size");
+        media.style.width = `${intrinsicWidth}px`;
+        media.style.maxWidth = "100%";
       }
     };
 
-    if (img.complete) {
-      updateImageSize();
+    if (media.tagName === "VIDEO") {
+      if (media.readyState >= 1) {
+        updateMediaSize();
+      } else {
+        media.addEventListener("loadedmetadata", updateMediaSize, { once: true });
+      }
     } else {
-      img.addEventListener("load", updateImageSize, { once: true });
+      if (media.complete) {
+        updateMediaSize();
+      } else {
+        media.addEventListener("load", updateMediaSize, { once: true });
+      }
     }
   });
 }
@@ -341,17 +439,10 @@ function openImageCollectionModal(title, images) {
 
   titleElement.textContent = title;
 
-  gallery.innerHTML = images.slice(0, 10).map((imagePath, index) => `
-    <div class="examples-gallery-item" onclick="openImageViewer('${escapeForSingleQuotedJsString(imagePath)}')">
-      <img
-        src="${imagePath}"
-        alt="${title} ${index + 1}"
-        class="example-image"
-        loading="lazy"
-        onerror="this.closest('.examples-gallery-item').style.display='none'"
-      >
-    </div>
-  `).join("");
+  gallery.innerHTML = images
+    .slice(0, 10)
+    .map((mediaPath, index) => renderCollectionMediaItem(mediaPath, `${title} ${index + 1}`))
+    .join("");
 
   modal.classList.add("active");
   syncBodyScrollLock();
@@ -380,9 +471,7 @@ function openTechniqueModal(techniqueName) {
           ${step.description ? `<p class="step-description">${step.description}</p>` : ''}
           ${step.images && step.images.length > 0 ? `
             <div class="step-images">
-              ${step.images.slice(0, 2).map(img => `
-                <img src="${img}" alt="Step ${index + 1}" class="step-image" onclick="openImageViewer('${img}')" onerror="this.style.display='none'">
-              `).join("")}
+              ${step.images.slice(0, 2).map(mediaPath => renderStepMediaPreview(mediaPath, index)).join("")}
             </div>
           ` : ''}
         </div>
@@ -460,9 +549,7 @@ function openNoteModal(noteName) {
           ${step.description ? `<p class="step-description">${step.description}</p>` : ''}
           ${step.images && step.images.length > 0 ? `
             <div class="step-images">
-              ${step.images.slice(0, 2).map(img => `
-                <img src="${img}" alt="Step ${index + 1}" class="step-image" onclick="openImageViewer('${img}')" onerror="this.style.display='none'">
-              `).join("")}
+              ${step.images.slice(0, 2).map(mediaPath => renderStepMediaPreview(mediaPath, index)).join("")}
             </div>
           ` : ''}
         </div>
@@ -499,18 +586,52 @@ function closeExamplesModal() {
 }
 
 // Open image viewer
-function openImageViewer(imageSrc) {
+function openMediaViewer(mediaSrc) {
   const viewer = document.getElementById("image-viewer");
   const img = document.getElementById("image-viewer-img");
-  img.src = imageSrc;
+  const video = document.getElementById("image-viewer-video");
+
+  if (isVideoPath(mediaSrc)) {
+    img.style.display = "none";
+    img.src = "";
+
+    video.style.display = "block";
+    video.src = mediaSrc;
+    video.load();
+  } else {
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+    video.style.display = "none";
+
+    img.style.display = "block";
+    img.src = mediaSrc;
+  }
+
   viewer.classList.add("active");
   syncBodyScrollLock();
+}
+
+function openImageViewer(imageSrc) {
+  openMediaViewer(imageSrc);
 }
 
 // Close image viewer
 function closeImageViewer() {
   const viewer = document.getElementById("image-viewer");
+  const img = document.getElementById("image-viewer-img");
+  const video = document.getElementById("image-viewer-video");
+
   viewer.classList.remove("active");
+
+  img.src = "";
+  img.style.display = "block";
+
+  video.pause();
+  video.removeAttribute("src");
+  video.load();
+  video.style.display = "none";
+
   syncBodyScrollLock();
 }
 

@@ -798,9 +798,10 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  position: relative;
 }
 
-.example-image {
+.collection-media {
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -808,7 +809,11 @@ body {
   display: block;
 }
 
-.example-image--true-size {
+.collection-media--video {
+  background-color: var(--muted);
+}
+
+.collection-media--true-size {
   height: auto;
   flex: 0 0 auto;
 }
@@ -828,6 +833,24 @@ body {
   cursor: pointer;
   border: 1px solid var(--border);
   transition: border-color 0.2s;
+}
+
+.step-media-preview {
+  position: relative;
+  width: 150px;
+  height: 100px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background-color: var(--muted);
+}
+
+.step-image--video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .step-image:hover {
@@ -881,6 +904,12 @@ body {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+}
+
+.image-viewer-video {
+  display: none;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* Empty State */
@@ -952,4 +981,35 @@ body {
   .step-images {
     margin-left: 0;
   }
+}
+
+.media-preview {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-preview-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: var(--muted);
+}
+
+.media-preview-badge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.media-preview-badge svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
