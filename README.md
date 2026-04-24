@@ -145,7 +145,9 @@ Can you change the categories counter on the top to count the number of notes?
 - [ ] Jegyzet-tömb kavalkád beimportálása
 - [ ] Weblap title
 - [ ] Weblap favicon
-- [ ] Other webpage improvements
+- [ ] Limit image display in mode 2 to image size if its smaller than what it'd display at
+- [ ] Video player?
+- [ ] Multi image handling for demo images
 - [ ] Custom alsószál
 - [ ] Tépőzár hátú folt
 
