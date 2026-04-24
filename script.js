@@ -36,6 +36,21 @@ function findNote(name) {
   return notes.find(note => note.name === name);
 }
 
+function syncBodyScrollLock() {
+  const techniqueModalOpen = document.getElementById("technique-modal")?.classList.contains("active");
+  const examplesModalOpen = document.getElementById("examples-modal")?.classList.contains("active");
+  const imageViewerOpen = document.getElementById("image-viewer")?.classList.contains("active");
+
+  document.body.style.overflow = (techniqueModalOpen || examplesModalOpen || imageViewerOpen) ? "hidden" : "";
+}
+
+function escapeForSingleQuotedJsString(value) {
+  return String(value)
+    .replace(/\\/g, "\\\\")
+    .replace(/'/g, "\\'");
+}
+
+
 // Render filter buttons dynamically from categories array
 function renderFilterButtons() {
   const container = document.getElementById("filter-buttons");
@@ -129,6 +144,38 @@ function applyGalleryImageSizing() {
 
       if (naturalWidth < frameWidth) {
         img.classList.add("patch-image--true-size");
+        img.style.width = `${naturalWidth}px`;
+        img.style.maxWidth = "100%";
+      }
+    };
+
+    if (img.complete) {
+      updateImageSize();
+    } else {
+      img.addEventListener("load", updateImageSize, { once: true });
+    }
+  });
+}
+
+function applyExamplesGallerySizing() {
+  const galleryImages = document.querySelectorAll(".example-image");
+
+  galleryImages.forEach((img) => {
+    const container = img.closest(".examples-gallery-item");
+    if (!container) return;
+
+    const updateImageSize = () => {
+      img.classList.remove("example-image--true-size");
+      img.style.width = "";
+      img.style.maxWidth = "";
+
+      const frameWidth = container.clientWidth;
+      const naturalWidth = img.naturalWidth;
+
+      if (!frameWidth || !naturalWidth) return;
+
+      if (naturalWidth < frameWidth) {
+        img.classList.add("example-image--true-size");
         img.style.width = `${naturalWidth}px`;
         img.style.maxWidth = "100%";
       }
@@ -274,6 +321,8 @@ function openTechniqueModal(techniqueName) {
 
   const modal = document.getElementById("technique-modal");
   const body = document.getElementById("modal-body");
+  const hasExamples = Array.isArray(technique.examples) && technique.examples.length > 0;
+  const escapedTechniqueName = escapeForSingleQuotedJsString(technique.name);
 
   const stepsHtml = technique.steps.length > 0 ? `
     <div class="modal-steps">
@@ -305,14 +354,53 @@ function openTechniqueModal(techniqueName) {
           <h2 class="modal-title">${technique.name}</h2>
           <span class="difficulty-badge ${getDifficultyClass(technique.difficulty)}">${technique.difficulty}</span>
         </div>
-        <p class="modal-subtitle">${technique.description}</p>
+        <div class="modal-copy-actions">
+          <p class="modal-subtitle">${technique.description}</p>
+          ${hasExamples ? `
+            <button class="patch-link-btn modal-examples-btn" onclick="openExamplesModal('${escapedTechniqueName}')">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+              Examples
+            </button>
+          ` : ""}
+        </div>
       </div>
     </div>
     ${stepsHtml}
   `;
 
   modal.classList.add("active");
-  document.body.style.overflow = "hidden";
+  syncBodyScrollLock();
+}
+
+function openExamplesModal(techniqueName) {
+  const technique = findTechnique(techniqueName);
+  if (!technique || !Array.isArray(technique.examples) || technique.examples.length === 0) return;
+
+  const modal = document.getElementById("examples-modal");
+  const title = document.getElementById("examples-modal-title");
+  const gallery = document.getElementById("examples-gallery");
+
+  title.textContent = `${technique.name} - Examples`;
+
+  gallery.innerHTML = technique.examples.slice(0, 10).map((imagePath, index) => `
+    <div class="examples-gallery-item" onclick="openImageViewer('${escapeForSingleQuotedJsString(imagePath)}')">
+      <img
+        src="${imagePath}"
+        alt="${technique.name} example ${index + 1}"
+        class="example-image"
+        loading="lazy"
+        onerror="this.closest('.examples-gallery-item').style.display='none'"
+      >
+    </div>
+  `).join("");
+
+  modal.classList.add("active");
+  syncBodyScrollLock();
+  requestAnimationFrame(applyExamplesGallerySizing);
 }
 
 //Open note modal
@@ -357,14 +445,20 @@ function openNoteModal(noteName) {
   `;
 
   modal.classList.add("active");
-  document.body.style.overflow = "hidden";
+  syncBodyScrollLock();
 }
 
 // Close technique modal
 function closeTechniqueModal() {
   const modal = document.getElementById("technique-modal");
   modal.classList.remove("active");
-  document.body.style.overflow = "";
+  syncBodyScrollLock();
+}
+
+function closeExamplesModal() {
+  const modal = document.getElementById("examples-modal");
+  modal.classList.remove("active");
+  syncBodyScrollLock();
 }
 
 // Open image viewer
@@ -373,14 +467,14 @@ function openImageViewer(imageSrc) {
   const img = document.getElementById("image-viewer-img");
   img.src = imageSrc;
   viewer.classList.add("active");
-  document.body.style.overflow = "hidden";
+  syncBodyScrollLock();
 }
 
 // Close image viewer
 function closeImageViewer() {
   const viewer = document.getElementById("image-viewer");
   viewer.classList.remove("active");
-  document.body.style.overflow = "";
+  syncBodyScrollLock();
 }
 
 // Initialize application
@@ -411,6 +505,14 @@ function init() {
     }
   });
 
+  document.getElementById("examples-modal-close").addEventListener("click", closeExamplesModal);
+
+  document.getElementById("examples-modal").addEventListener("click", (e) => {
+    if (e.target.id === "examples-modal") {
+      closeExamplesModal();
+    }
+  });
+
   // Image viewer close
   document.getElementById("image-viewer-close").addEventListener("click", closeImageViewer);
   document.getElementById("image-viewer").addEventListener("click", (e) => {
@@ -422,8 +524,13 @@ function init() {
   // Close modals with Escape key
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      closeTechniqueModal();
-      closeImageViewer();
+      if (document.getElementById("image-viewer").classList.contains("active")) {
+        closeImageViewer();
+      } else if (document.getElementById("examples-modal").classList.contains("active")) {
+        closeExamplesModal();
+      } else if (document.getElementById("technique-modal").classList.contains("active")) {
+        closeTechniqueModal();
+      }
     }
   });
 
@@ -446,6 +553,10 @@ function init() {
   window.addEventListener("resize", () => {
     if (viewMode === "gallery") {
       applyGalleryImageSizing();
+    }
+
+    if (document.getElementById("examples-modal").classList.contains("active")) {
+      applyExamplesGallerySizing();
     }
   });
 }

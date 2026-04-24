@@ -81,6 +81,7 @@ const patches = [
 //							Intermediate:	requires somewhat higher level of machine/software knowledge, plus some skill and dexterity
 //							Advanced:		requires advanced machine/software knowledge, and a fair amount of skill/dexterity
 // - demoImage: Path to demonstrator image (required)
+// - examples: Array of example image paths, MAX 10 (optional, can be [])
 // - steps: Array of step objects (required, can be empty [])
 //   Each step has:
 //   - name: Step title (required)
@@ -93,6 +94,12 @@ const techniques = [
     description: "Eltérő hímzett design a folt mindkét oldalán. Jól tag-en alkalmazható, ahol kerül rá egy lyuk, amin keresztül felfűzhető dolgokra.<br><i>Pl.: Simonyis kulcstartó by Andor</i>",
     difficulty: "Intermediate",
     demoImage: "./content/icons/ketoldal.png",
+    examples: ["./content/icons/ketoldal.png", "./content/images/rag_spray.jpg",
+      "./content/icons/ketoldal.png", "./content/images/rag_spray.jpg", 
+      "./content/icons/ketoldal.png", "./content/images/rag_spray.jpg", 
+      "./content/icons/ketoldal.png", "./content/images/rag_spray.jpg", 
+      "./content/icons/ketoldal.png", "./content/images/rag_spray.jpg"
+    ],
     steps: [
       {
         name: "A két oldal designjának lehímzése",

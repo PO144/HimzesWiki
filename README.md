@@ -127,6 +127,43 @@ Couple more things I'd like to fix:
 
 Can you change the categories counter on the top to count the number of notes?
 
+----------------------------
+
+The files are attached as a refresher
+
+New things to add:
+1. In gallery viewmode, if the thumbnail image's true width (since it uses a fixed width and adaptive height) is smaller than what the site wants it to show as, it should be limited to it's true size. If the image is the same size or larger than it should be displayed the current way with a fixed width and adaptive height.
+->In case the image is smaller, you should center it in it's frame and fill the surrounding space around it with a slightly darkened version of the background color of the page.
+
+'-----
+
+New things to add:
+1. In gallery viewmode, if the thumbnail image's true width (since it uses a fixed width and adaptive height) is smaller than what the site wants it to show as, it should be limited to it's true size. If the image is the same size or larger than it should be displayed the current way with a fixed width and adaptive height.
+->In case the image is smaller, you should center it in it's frame and fill the surrounding space around it with a slightly darkened version of the background color of the page.
+
+----------------------------
+
+Okay, redo, because I changed some stuff and you didn't use the already existing up to date code: 
+
+
+Okay, moving on, new change, big one:
+
+1. A new field called examples should be added techniques. It's going to contain images, zero, one or more (should be like the image field of technique steps except instead of a two image cap it should have a 10 image cap)
+2. Within the popup window of techniques, I want you to add a button labeled examples (the left of the button should be aligned with the left of the description, the bottom of it should be aligned with the bottom of the demo image). The button should say "Examples". It should be the same orange color as the link button on patches. This button should only appear when the new examples field is filled with at least one image.
+When clicked it should open another popup window, with a gallery type collection of the photos linked in the example field. This collection should be like the gallery collection in patches, where it tries to do fixed width auto height, except if the image is smaller in which case it does the same as it does in the patch collection. 
+
+'----------------------------------------
+
+Okay, moving on, new change, big one:
+
+1. A new field called examples should be added techniques. It's going to contain images, zero, one or more (should be like the image field of technique steps except instead of a two image cap it should have a 10 image cap)
+2. Within the popup window of techniques, I want you to add a button labeled examples (the left of the button should be aligned with the left of the description, the bottom of it should be aligned with the bottom of the demo image). The button should say "Examples". It should be the same orange color as the link button on patches. This button should only appear when the new examples field is filled with at least one image.
+When clicked it should open another popup window, with a gallery type collection of the photos linked in the example field. This collection should be like the gallery collection in patches, where it tries to do fixed width auto height, except if the image is smaller in which case it does the same as it does in the patch collection. 
+
+----------------------------------------
+
+
+
 </details>
 
 ---

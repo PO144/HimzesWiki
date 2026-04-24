@@ -623,6 +623,7 @@ body {
   gap: 1.5rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
+  align-items: stretch;
 }
 
 .modal-demo-image {
@@ -637,6 +638,8 @@ body {
 .modal-title-section {
   flex: 1;
   min-width: 200px;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-title-row {
@@ -645,6 +648,20 @@ body {
   gap: 0.75rem;
   margin-bottom: 0.5rem;
   flex-wrap: wrap;
+}
+
+.modal-copy-actions {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.modal-examples-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  min-height: 2rem;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .modal-title {
@@ -719,6 +736,46 @@ body {
   line-height: 1.6;
   margin-left: 2.5rem;
   margin-bottom: 0.75rem;
+}
+
+.modal-content--examples {
+  max-width: 1100px;
+}
+
+.examples-modal-header {
+  margin-bottom: 1.25rem;
+  padding-right: 3.5rem;
+}
+
+.examples-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.examples-gallery-item {
+  background-color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.example-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 520px;
+  display: block;
+}
+
+.example-image--true-size {
+  height: auto;
+  flex: 0 0 auto;
 }
 
 .step-images {
