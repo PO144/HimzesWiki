@@ -46,6 +46,7 @@ const categories = [
 // - category: Must match one from categories array above (required)
 // - techniques: Array of technique names - must match names in techniques array (required)
 // - link: External URL (optional - if set, shows a link button)
+// - additionalImages: Array of image paths, max 10 (optional, can be [])
 
 const patches = [
   {
@@ -57,7 +58,8 @@ const patches = [
     //image: "./videos/video_2026-04-24_20-37-20.mp4",
     category: "Jó design",
     techniques: [],
-    link: "https://www.sageventure.com/store/designs/SCUBA.html"
+    link: "https://www.sageventure.com/store/designs/SCUBA.html",
+    additionalImages: ["./content/images/rag_spray.jpg"]
   },
     {
     title: "BSA Troop patch",
@@ -65,7 +67,8 @@ const patches = [
     image: "./content/images/bsa/Troop760.jpg",
     category: "Érdekes technika",
     techniques: ["Bump print"],
-    link: "https://www.sageventure.com/store/designs/Troop760.html"
+    link: "https://www.sageventure.com/store/designs/Troop760.html",
+    additionalImages: []
   },
 ];
 

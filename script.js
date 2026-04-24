@@ -36,6 +36,10 @@ function findNote(name) {
   return notes.find(note => note.name === name);
 }
 
+function findPatch(title) {
+  return patches.find(patch => patch.title === title);
+}
+
 function syncBodyScrollLock() {
   const techniqueModalOpen = document.getElementById("technique-modal")?.classList.contains("active");
   const examplesModalOpen = document.getElementById("examples-modal")?.classList.contains("active");
@@ -104,15 +108,29 @@ function renderPatches() {
         <div class="patch-techniques">
           ${patch.techniques.map(t => `<span class="technique-tag" onclick="openTechniqueModal('${t}')">${t}</span>`).join("")}
         </div>
-        ${patch.link ? `
-          <a href="${patch.link}" target="_blank" rel="noopener noreferrer" class="patch-link-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-              <polyline points="15 3 21 3 21 9"/>
-              <line x1="10" y1="14" x2="21" y2="3"/>
-            </svg>
-            View Link
-          </a>
+        ${(patch.link || (Array.isArray(patch.additionalImages) && patch.additionalImages.length > 0)) ? `
+          <div class="patch-actions">
+            ${patch.link ? `
+              <a href="${patch.link}" target="_blank" rel="noopener noreferrer" class="patch-link-btn patch-action-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+                View Link
+              </a>
+            ` : ``}
+            ${Array.isArray(patch.additionalImages) && patch.additionalImages.length > 0 ? `
+              <button type="button" class="patch-link-btn patch-action-btn patch-additional-images-btn" onclick="openPatchAdditionalImagesModal('${escapeForSingleQuotedJsString(patch.title)}')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+                Additional Images
+              </button>
+            ` : ''}
+          </div>
         ` : ''}
       </div>
     </article>
@@ -314,6 +332,32 @@ function setFilter(category) {
   renderPatches();
 }
 
+function openImageCollectionModal(title, images) {
+  if (!Array.isArray(images) || images.length === 0) return;
+
+  const modal = document.getElementById("examples-modal");
+  const titleElement = document.getElementById("examples-modal-title");
+  const gallery = document.getElementById("examples-gallery");
+
+  titleElement.textContent = title;
+
+  gallery.innerHTML = images.slice(0, 10).map((imagePath, index) => `
+    <div class="examples-gallery-item" onclick="openImageViewer('${escapeForSingleQuotedJsString(imagePath)}')">
+      <img
+        src="${imagePath}"
+        alt="${title} ${index + 1}"
+        class="example-image"
+        loading="lazy"
+        onerror="this.closest('.examples-gallery-item').style.display='none'"
+      >
+    </div>
+  `).join("");
+
+  modal.classList.add("active");
+  syncBodyScrollLock();
+  requestAnimationFrame(applyExamplesGallerySizing);
+}
+
 // Open technique modal
 function openTechniqueModal(techniqueName) {
   const technique = findTechnique(techniqueName);
@@ -378,29 +422,22 @@ function openTechniqueModal(techniqueName) {
 
 function openExamplesModal(techniqueName) {
   const technique = findTechnique(techniqueName);
-  if (!technique || !Array.isArray(technique.examples) || technique.examples.length === 0) return;
+  if (!technique) return;
 
-  const modal = document.getElementById("examples-modal");
-  const title = document.getElementById("examples-modal-title");
-  const gallery = document.getElementById("examples-gallery");
+  openImageCollectionModal(
+    `${technique.name} - Examples`,
+    technique.examples
+  );
+}
 
-  title.textContent = `${technique.name} - Examples`;
+function openPatchAdditionalImagesModal(patchTitle) {
+  const patch = findPatch(patchTitle);
+  if (!patch) return;
 
-  gallery.innerHTML = technique.examples.slice(0, 10).map((imagePath, index) => `
-    <div class="examples-gallery-item" onclick="openImageViewer('${escapeForSingleQuotedJsString(imagePath)}')">
-      <img
-        src="${imagePath}"
-        alt="${technique.name} example ${index + 1}"
-        class="example-image"
-        loading="lazy"
-        onerror="this.closest('.examples-gallery-item').style.display='none'"
-      >
-    </div>
-  `).join("");
-
-  modal.classList.add("active");
-  syncBodyScrollLock();
-  requestAnimationFrame(applyExamplesGallerySizing);
+  openImageCollectionModal(
+    `${patch.title} - Additional Images`,
+    patch.additionalImages
+  );
 }
 
 //Open note modal

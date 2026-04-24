@@ -398,6 +398,31 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.patch-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.patch-actions .patch-link-btn {
+  min-height: 2rem;
+  white-space: nowrap;
+}
+
+.patch-actions button.patch-link-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.patch-card--list .patch-actions {
+  align-self: flex-start;
+}
+
 .difficulty-badge {
   position: absolute;
   top: 0.75rem;
@@ -488,6 +513,16 @@ body {
 .patch-link-btn svg {
   width: 0.875rem;
   height: 0.875rem;
+}
+
+.patch-additional-images-btn {
+  background-color: var(--muted);
+  color: var(--muted-foreground);
+}
+
+.patch-additional-images-btn:hover {
+  background-color: var(--accent);
+  color: white;
 }
 
 /* Technique Section */
