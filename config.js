@@ -51,7 +51,7 @@ const patches = [
   {
     title: "BSA Scuba",
     description: "Incredibly simple design, and yet it slaps. Worth noting, that the background fabric doesn't show once.",
-    //image: "./images/bsa/SCUBA.jpg",
+    image: "./content/images/bsa/SCUBA.jpg",
     //KÉP TESZTEK
     //image: "./images/rag_spray.jpg",
     //image: "./videos/video_2026-04-24_20-37-20.mp4",
@@ -62,7 +62,7 @@ const patches = [
     {
     title: "BSA Troop patch",
     description: "Incredibly detailed bump print that blends in perfectly color wise.",
-    image: "./images/bsa/Troop760.jpg",
+    image: "./content/images/bsa/Troop760.jpg",
     category: "Érdekes technika",
     techniques: ["Bump print"],
     link: "https://www.sageventure.com/store/designs/Troop760.html"
@@ -92,7 +92,7 @@ const techniques = [
     name: "Kétoldalú hímzés",
     description: "Eltérő hímzett design a folt mindkét oldalán. Jól tag-en alkalmazható, ahol kerül rá egy lyuk, amin keresztül felfűzhető dolgokra.<br><i>Pl.: Simonyis kulcstartó by Andor</i>",
     difficulty: "Intermediate",
-    demoImage: "./images/placeholder.bmp",
+    demoImage: "./content/icons/ketoldal.png",
     steps: [
       {
         name: "A két oldal designjának lehímzése",
@@ -117,7 +117,7 @@ const techniques = [
 	  {
         name: "A <i>spray</i>-el ragaszd fel a fólia két oldalára a két korábban lehímzett oldalt",
         description: "Az ideiglenes ragasztó sprayel ragaszd fel az egyik oldalt a fólia tetejére, a másikat az aljára, a megfelelő orientációban. <b>A fólia maradjon a keretbe befogva!</b><br>Meglehet, hogy a ragasztó picit rosszul fog, és főként az alsó oldalt <i>biztonságosan</i> meg kell támogatni majd hímzés közben egy kis ideig.<br><i>Lehetőleg nyitott ablak mellett sprayz, és a keretet utána tisztítsd le, mert ragadni fog sokáig!</i>",
-        images: ["./images/rag_spray.jpg"]
+        images: ["./content/images/rag_spray.jpg"]
       },
 	  {
         name: "Hímezd fel a satin körvonalat!",
@@ -147,7 +147,7 @@ const notes = [
   {
     name: "Filler note",
     description: "Filler description.",
-    demoImage: "./images/placeholder.bmp",
+    demoImage: "./content/images/placeholder.bmp",
     steps: [
       {
         name: "Step 1",
