@@ -150,6 +150,7 @@ Can you change the categories counter on the top to count the number of notes?
 - [ ] Multi image handling for demo images
 - [ ] Custom alsószál
 - [ ] Tépőzár hátú folt
+- [ ] Színátmenet
 
 ---
 

@@ -102,6 +102,44 @@ function renderPatches() {
       </div>
     </article>
   `).join("");
+
+  if (viewMode === "gallery") {
+    requestAnimationFrame(applyGalleryImageSizing);
+  }
+}
+
+function applyGalleryImageSizing() {
+  if (viewMode !== "gallery") return;
+
+  const galleryImages = document.querySelectorAll(".patch-card--gallery .patch-image");
+
+  galleryImages.forEach((img) => {
+    const container = img.closest(".patch-image-container");
+    if (!container) return;
+
+    const updateImageSize = () => {
+      img.classList.remove("patch-image--true-size");
+      img.style.width = "";
+      img.style.maxWidth = "";
+
+      const frameWidth = container.clientWidth;
+      const naturalWidth = img.naturalWidth;
+
+      if (!frameWidth || !naturalWidth) return;
+
+      if (naturalWidth < frameWidth) {
+        img.classList.add("patch-image--true-size");
+        img.style.width = `${naturalWidth}px`;
+        img.style.maxWidth = "100%";
+      }
+    };
+
+    if (img.complete) {
+      updateImageSize();
+    } else {
+      img.addEventListener("load", updateImageSize, { once: true });
+    }
+  });
 }
 
 // Render view mode toggle
@@ -403,6 +441,12 @@ function init() {
       document.querySelectorAll(".nav-link").forEach(l => l.classList.remove("active"));
       link.classList.add("active");
     });
+  });
+
+  window.addEventListener("resize", () => {
+    if (viewMode === "gallery") {
+      applyGalleryImageSizing();
+    }
   });
 }
 

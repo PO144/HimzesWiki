@@ -308,9 +308,17 @@ body {
   transform: scale(1.03);
 }
 
+.patch-card--gallery:hover .patch-image--true-size {
+  transform: none;
+}
+
 /* Gallery View Card Styles */
 .patch-card--gallery .patch-image-container {
   aspect-ratio: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--muted);
 }
 
 .patch-card--gallery .patch-image {
@@ -318,6 +326,11 @@ body {
   height: auto;
   object-fit: contain;
   max-height: 520px;
+}
+
+.patch-card--gallery .patch-image--true-size {
+  height: auto;
+  flex: 0 0 auto;
 }
 
 .patch-card--gallery .patch-content {

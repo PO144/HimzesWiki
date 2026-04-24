@@ -51,7 +51,10 @@ const patches = [
   {
     title: "BSA Scuba",
     description: "Incredibly simple design, and yet it slaps. Worth noting, that the background fabric doesn't show once.",
-    image: "./images/bsa/SCUBA.jpg",
+    //image: "./images/bsa/SCUBA.jpg",
+    //KÉP TESZTEK
+    //image: "./images/rag_spray.jpg",
+    //image: "./videos/video_2026-04-24_20-37-20.mp4",
     category: "Jó design",
     techniques: [],
     link: "https://www.sageventure.com/store/designs/SCUBA.html"
