@@ -188,7 +188,7 @@ You should make the examples button be the height of the link button, and you sh
 - [X] Weblap title
 - [X] Weblap favicon
 - [X] Limit image display in mode 2 to image size if its smaller than what it'd display at
-- [ ] Video player?
+- [X] Video player?
 - [X] Multi image handling for demo images - !!! May improve in the future where the demo image param is a list, and it displayes the first one with an indicator in the bottom indicating multi image, and when clicked you can cycle left/right with arrows
 - [ ] Custom alsószál
 - [ ] Tépőzár hátú folt
