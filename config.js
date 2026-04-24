@@ -146,7 +146,7 @@ const techniques = [
 // Each note has:
 // - name: Display name (required)
 // - description: Short description shown in the card (required)
-// - demoImage: Path to thumbnail / demonstrator image (required)
+// - demoImage: Path to thumbnail / demonstrator image (optional, can be "" or omitted)
 // - steps: Array of step objects (required, can be empty [])
 //   Each step has:
 //   - name: Step title (required)
@@ -157,7 +157,7 @@ const notes = [
   {
     name: "Filler note",
     description: "Filler description.",
-    demoImage: "./content/images/placeholder.bmp",
+    demoImage: "",
     steps: [
       {
         name: "Step 1",

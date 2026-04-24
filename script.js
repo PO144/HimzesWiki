@@ -406,7 +406,7 @@ function renderNotes() {
 
   grid.innerHTML = filtered.map(note => `
     <div class="technique-card" onclick="openNoteModal('${note.name.replace(/'/g, "\\'")}')">
-      <img src="${note.demoImage}" alt="${note.name}" class="technique-thumb" onerror="this.style.display='none'">
+      ${note.demoImage ? `<img src="${note.demoImage}" alt="${note.name}" class="technique-thumb" onerror="this.style.display='none'">` : ""}
       <div class="technique-info">
         <h4 class="technique-name">${note.name}</h4>
         <p class="technique-description">${note.description}</p>
@@ -559,7 +559,7 @@ function openNoteModal(noteName) {
 
   body.innerHTML = `
     <div class="modal-header">
-      <img src="${note.demoImage}" alt="${note.name}" class="modal-demo-image" onclick="openImageViewer('${note.demoImage}')" onerror="this.style.display='none'">
+      ${note.demoImage ? `<img src="${note.demoImage}" alt="${note.name}" class="modal-demo-image" onclick="openImageViewer('${note.demoImage}')" onerror="this.style.display='none'">` : ""}
       <div class="modal-title-section">
         <h2 class="modal-title">${note.name}</h2>
         <p class="modal-subtitle">${note.description}</p>
