@@ -96,7 +96,7 @@ const techniques = [
     name: "Kétoldalú hímzés",
     description: "Eltérő hímzett design a folt mindkét oldalán. Jól tag-en alkalmazható, ahol kerül rá egy lyuk, amin keresztül felfűzhető dolgokra.<br><i>Pl.: Simonyis kulcstartó by Andor</i>",
     difficulty: "Intermediate",
-    demoImage: "./content/icons/ketoldal.png",
+    demoImage: "./content/icons/twoSided-blank.png",
     examples: ["./content/icons/ketoldal.png", "./content/images/rag_spray.jpg",
       "./content/icons/ketoldal.png", "./content/images/rag_spray.jpg", 
       "./content/icons/ketoldal.png", "./content/images/rag_spray.jpg", 
