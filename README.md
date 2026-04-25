@@ -9,6 +9,30 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 
 ---
 
+#### To do/to add:
+
+- [ ] Tű csere + minden amit a tűkről tudni kell
+- [ ] Cérna feszítő rugó szerelés
+- [ ] BSA foltok beimportálása
+- [ ] Kétoldalú-nak kép
+- [ ] Parafa-fal foltok beimportálása
+- [ ] Puffy szivacs tut
+- [ ] Carving stamp tut
+- [ ] Színátmenet tut
+- [ ] General tervezés tippek
+- [ ] Jegyzet-tömb kavalkád beimportálása
+- [X] Weblap title
+- [X] Weblap favicon
+- [X] Limit image display in mode 2 to image size if its smaller than what it'd display at
+- [X] Video player?
+- [X] Multi image handling for demo images - !!! May improve in the future where the demo image param is a list, and it displayes the first one with an indicator in the bottom indicating multi image, and when clicked you can cycle left/right with arrows
+- [ ] Custom alsószál
+- [ ] Tépőzár hátú folt
+- [ ] Színátmenet
+- [ ] Puffi/Wiki link/gomb? -maybe
+
+---
+
 ### Az AI generálás részletei
 
 Felhasznált AI-ok:
@@ -170,29 +194,6 @@ You should make the examples button be the height of the link button, and you sh
 
 
 </details>
-
----
-
-#### To do/to add:
-
-- [ ] Tű csere + minden amit a tűkről tudni kell
-- [ ] Cérna feszítő rugó szerelés
-- [ ] BSA foltok beimportálása
-- [ ] Kétoldalú-nak kép
-- [ ] Parafa-fal foltok beimportálása
-- [ ] Puffy szivacs tut
-- [ ] Carving stamp tut
-- [ ] Színátmenet tut
-- [ ] General tervezés tippek
-- [ ] Jegyzet-tömb kavalkád beimportálása
-- [X] Weblap title
-- [X] Weblap favicon
-- [X] Limit image display in mode 2 to image size if its smaller than what it'd display at
-- [X] Video player?
-- [X] Multi image handling for demo images - !!! May improve in the future where the demo image param is a list, and it displayes the first one with an indicator in the bottom indicating multi image, and when clicked you can cycle left/right with arrows
-- [ ] Custom alsószál
-- [ ] Tépőzár hátú folt
-- [ ] Színátmenet
 
 ---
 
