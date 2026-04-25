@@ -14,13 +14,15 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 - [ ] Tű csere + minden amit a tűkről tudni kell
 - [ ] Cérna feszítő rugó szerelés
 - [ ] BSA foltok beimportálása
-- [ ] Kétoldalú-nak kép
+- [X] Kétoldalú-nak kép
 - [ ] Parafa-fal foltok beimportálása
 - [ ] Puffy szivacs tut
 - [ ] Carving stamp tut
 - [ ] Színátmenet tut
 - [ ] General tervezés tippek
 - [ ] Jegyzet-tömb kavalkád beimportálása
+- [ ] Messenger üzenetekből okosságok beimportálása!!!
+- [ ] Fotókból okosságok beimportálása
 - [X] Weblap title
 - [X] Weblap favicon
 - [X] Limit image display in mode 2 to image size if its smaller than what it'd display at
@@ -30,6 +32,31 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 - [ ] Tépőzár hátú folt
 - [ ] Színátmenet
 - [ ] Puffi/Wiki link/gomb? -maybe
+- [ ] 10 klikk leesik a cérna easter egg (shake on click)
+- [ ] Cérna típusok elmagyarázása (különleges tulajdonságok, igények, gyakori bajok)
+- [ ] Anyag típusok explained (ppt, cordura, bőr)
+- [ ] Aláanyag típusok explained (mikor kell, mire jó; vasalós, víz oldadós, papír, fő)
+- [ ] Kommunikáció a megrendelővel/emailezés (mit nem fogadunk el, stb, belsős email lezárás)
+- [ ] Árszámítás részletei
+- [ ] Debug: vékonyabb képernyőn rossz: additional images, a difficulty a noteokon rálóg
+- [ ] Footer with credits/év ami dátumból szedi és folyton frissül
+- [ ] USBről design sanyin
+- [ ] Videó tutorialok pl égetés mozgástechnikájára
+- [ ] Olajozási hely fotó
+- [ ] Rájönni melyik kar pozíció kell a műanyag szögletes keretnek
+- [ ] Alsó cérna befogás tutorial
+- [ ] Hol a B pont?
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
 
 ---
 
