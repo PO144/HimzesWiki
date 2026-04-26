@@ -35,6 +35,9 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 - [ ] Note kategóriák, de jobb felső difficulty taggel jelölve
 - [ ] Jobb szöveg formázás (pl. noteokba fontos szövegnek "important" class, és akkor pl. sötét zöld színben és kap szürke hátteret)
 - [X] Used by a technique-s modal-nál, ami kilistázza gelériában az összes folt primary képét, ami használja
+- [X] Függőlegesen is adaptív oszlopok a patch gallery view-ban
+- [X] Kívül megjelenő, és belül megjelenő description szétválasztása a note-okban
+- [X] Kiválasztható ordered/unordered list beállítás a note-okban
 > Technikák:
 - [ ] Puffy szivacs tut
 - [ ] Carving stamp tut
@@ -71,6 +74,7 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 > RELATED IRL:
 - [ ] Rájönni melyik kar pozíció kell a műanyag szögletes keretnek
 - [ ] Hol a B pont?
+- [ ] Sanyin lefotózni a matricákat, köztük az <b>olajozásosat</b> is.
 
 ---
 

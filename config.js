@@ -70,7 +70,7 @@ const patches = [
     //image: "./images/rag_spray.jpg",
     //image: "./content/videos/video_2026-04-24_20-37-20.mp4",
     category: "Jó design",
-    techniques: [],
+    techniques: ["Hímzett háttér"],
     link: "https://www.sageventure.com/store/designs/SCUBA.html",
     additionalImages: []
   },
@@ -79,7 +79,7 @@ const patches = [
     description: "Incredibly detailed bump print that blends in perfectly color wise.",
     image: "./content/images/bsa/Troop760.jpg",
     category: "Érdekes technika",
-    techniques: ["Vésett effekt"],
+    techniques: ["Vésett effekt", "Hímzett háttér"],
     link: "https://www.sageventure.com/store/designs/Troop760.html",
     additionalImages: []
   },
@@ -125,6 +125,33 @@ const patches = [
   image: "./content/images/hajo2024.png",
   category: "Érdekes technika",
   techniques: ["Run art"],
+  link: "",
+  additionalImages: []
+  },
+  {
+  title: "SZÉF KB folt",
+  description: "Használ ezüst cérnát + teljesen behímzett a folt, nem látszik ki a cordura!<br><sub>Needs bigger image.</sub>",
+  image: "./content/images/kb.png",
+  category: "Érdekes technika",
+  techniques: ["Hímzett háttér"],
+  link: "",
+  additionalImages: []
+  },
+  {
+  title: "Flow honvéd-style folt",
+  description: "Honvéd rangjelzés helyére tervezett, olyan alakú, <i>tépőzáras hátú</i> folt.",
+  image: "./content/images/Flow_honvéd.png",
+  category: "Érdekes technika",
+  techniques: ["Tépőzáras folt"],
+  link: "",
+  additionalImages: []
+  },
+  {
+  title: "Gólya házi - kicsi verzió",
+  description: "A foltalkotás kitökéletesedése.",
+  image: "./content/images/gólya_kicsi_v0.png",
+  category: "Jó design",
+  techniques: [],
   link: "",
   additionalImages: []
   },
@@ -212,29 +239,56 @@ const techniques = [
 // Notes work similarly to techniques, but without difficulty.
 // Each note has:
 // - name: Display name (required)
-// - description: Short description shown in the card (required)
+// - externalDescription: Description shown on the note card in the grid (required)
+// - internalDescription: Description shown inside the note modal (required)
 // - demoImage: Path to thumbnail / demonstrator image (optional, can be "" or omitted)
+// - unOrdered: If true, note modal steps use non-numbered markers (optional, defaults to false)
 // - steps: Array of step objects (required, can be empty [])
 //   Each step has:
 //   - name: Step title (required)
 //   - description: Step description (optional, can be "" or omitted)
 //   - images: Array of image paths, max 2 (optional, can be [] or omitted)
+//
+// TEMPLATE
+/*
+{
+  name: "",
+  description: "",
+  demoImage: "",
+  unOrdered: true,
+  steps: [
+    {
+      name: "Step 1",
+      externalDescription: "Interesting stuff.",
+      internalDescription: "Some more stuff",
+      images: []
+    },
+    {
+      name: "Step 2",
+      description: "Sure is.",
+      images: ["./content/videos/video_2026-04-24_20-37-20.mp4"]
+    }
+  ]
+}
+*/
 
 const notes = [
   {
-    name: "Filler note",
-    description: "Filler description.",
+    name: "Olajozás",
+    externalDescription: "Hogyan, mikor és mivel kell Sanyit megolajozni.",
+    internalDescription: "Sanyit viszonylag gyakran olajozni kell! Ehhez a tőle <i>jobbra levő polcon</i> elhelyezett piros végű <b>fecskendőt</b> hasznájluk.<br>Fontos, hogy csak egy <b>pici</b> olajat kell tenni a pontokra.<br><br>Olajozáskor érintsd a ponthoz a tű hegyét, majd <b>gyengéden</b> kezd el nyomni a dugattyút. Amint egy kicsi kijön, meg is vagy! Ha nem fedte be teljesen a kívánt részt, a hegyével szépen oda \"ecsetelheted\"!<br><br>Sanyi papiron mindig szól, amikor olajozni kell. Ilyenkor megjelenik egy popup a képernyőn, ami megmondja, melyik pontnak van itt az olajozási idelye. Két opció van: <i>Later</i> és <i>Done</i>; csak akkor nyomj done-t, ha megcsináltad. <i>(A done semmit nem csinál azon kívül, hogy lejegyzi sanyiban, hogy meg lett olajozva.)</i><br><sub>Amikor olajozol, kérlek figyelj oda, hogy ne olajozz össze mindent is, mert nagyon zavaró később.</sub>",
     demoImage: "",
+    unOrdered: true,
     steps: [
       {
-        name: "Step 1",
-        description: "Interesting stuff.",
-        images: []
+        name: "<i>\"A\"</i> PONT",
+        description: "Ezt a pontot <b>naponta</b> egyszer kell megolajozni. A cél, hogy a kis peremet olajozd, ami sötét pirossal van kiemelve.",
+        images: ["./content/images/olajA_nagy.png", "./content/images/olajA_zoom.png"]
       },
       {
-        name: "Step 2",
-        description: "Sure is.",
-        images: ["./content/videos/video_2026-04-24_20-37-20.mp4"]
+        name: "<i>\"B\"</i> PONT",
+        description: "Ezt a pontot <b>hetente</b> egyszer kell megolajozni.",
+        images: []
       }
     ]
   }

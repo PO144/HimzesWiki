@@ -417,7 +417,7 @@ function renderNotes() {
       ${note.demoImage ? `<img src="${note.demoImage}" alt="${note.name}" class="technique-thumb" onerror="this.style.display='none'">` : ""}
       <div class="technique-info">
         <h4 class="technique-name">${note.name}</h4>
-        <p class="technique-description">${note.description}</p>
+        <p class="technique-description">${note.externalDescription || note.description || ""}</p>
         <span class="technique-count">Note</span>
       </div>
     </div>
@@ -579,13 +579,14 @@ function openNoteModal(noteName) {
 
   const modal = document.getElementById("technique-modal");
   const body = document.getElementById("modal-body");
+  const isUnOrdered = note.unOrdered === true;
 
   const stepsHtml = note.steps.length > 0 ? `
     <div class="modal-steps">
       ${note.steps.map((step, index) => `
         <div class="step-item">
           <div class="step-header">
-            <span class="step-number">${index + 1}</span>
+            <span class="step-number">${isUnOrdered ? "•" : index + 1}</span>
             <span class="step-name">${step.name}</span>
           </div>
           ${step.description ? `<p class="step-description">${step.description}</p>` : ''}
@@ -604,7 +605,7 @@ function openNoteModal(noteName) {
       ${note.demoImage ? `<img src="${note.demoImage}" alt="${note.name}" class="modal-demo-image" onclick="openImageViewer('${note.demoImage}')" onerror="this.style.display='none'">` : ""}
       <div class="modal-title-section">
         <h2 class="modal-title">${note.name}</h2>
-        <p class="modal-subtitle">${note.description}</p>
+        <p class="modal-subtitle">${note.internalDescription || note.description || ""}</p>
       </div>
     </div>
     ${stepsHtml}
