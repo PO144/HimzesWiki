@@ -358,9 +358,10 @@ body {
   transition: transform 0.3s;
 }
 
+/*disabled for now
 .patch-card:hover .patch-image {
   transform: scale(1.03);
-}
+}*/
 
 .patch-card--gallery:hover .patch-image--true-size {
   transform: none;

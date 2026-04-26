@@ -67,6 +67,7 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 - [ ] Messenger üzenetekből okosságok beimportálása!!!
 - [ ] Fotókból okosságok beimportálása
 - [ ] Videó tutorialok pl égetés mozgástechnikájára
+- [ ] Kis hajó/raft foltot rendesen lefotózni
 > RELATED IRL:
 - [ ] Rájönni melyik kar pozíció kell a műanyag szögletes keretnek
 - [ ] Hol a B pont?

@@ -32,7 +32,7 @@
 // The "All" filter is always included automatically.
 
 const categories = [
-  "Jó design", "Érdekes technika"
+  "Jó design", "Érdekes technika", "Egyéb"
 ];
 
 
@@ -47,6 +47,19 @@ const categories = [
 // - techniques: Array of technique names - must match names in techniques array (required)
 // - link: External URL (optional - if set, shows a link button)
 // - additionalImages: Array of image/video paths, max 10 (optional, can be [])
+//
+// TEMPLATE:
+/*
+{
+  title: "",
+  description: "",
+  image: "./content/images/",
+  category: "",
+  techniques: [],
+  link: "",
+  additionalImages: []
+},
+*/
 
 const patches = [
   {
@@ -73,11 +86,47 @@ const patches = [
   {
     title: "Simonyi kulcstartó folt",
     description: "Kétoldalas hímzés, lyukkal benne a kulcstartónak.",
-    image: "./content/images/simonyi.png",
+    image: "./content/images/simonyi_cropped_combined.png",
     category: "Érdekes technika",
     techniques: ["Kétoldalú hímzés"],
     link: "",
+    additionalImages: ["./content/images/simonyi_cropped_front.png", "./content/images/simonyi_cropped_back.png"]
+  },
+  {
+    title: "KRViSE kardos folt",
+    description: "Fekete cordurára fekete szállal hímezve, csak adott szögben/megfelelő fénynél olvasható, a cérna csillogásának köszönhetően.",
+    image: "./content/images/krvise.png",
+    category: "Érdekes technika",
+    techniques: ["Azonos színnel hímzés"],
+    link: "",
     additionalImages: []
+  },
+  {
+  title: "Kísérteaház",
+  description: "A folt egy része sima fehér cérnával, másik része pedig fehér glowie-val van hímezve, sötétben megváltozik a szöveg.",
+  image: "./content/images/kísértet_combined.png",
+  category: "Érdekes technika",
+  techniques: ["Vegyes glowie és normál cérna"],
+  link: "",
+  additionalImages: ["./content/images/kísértet_explained.png", "./content/images/kísértet_day.png", "./content/images/kísértet_night.png"]
+  },
+  {
+  title: "That's what she said.",
+  description: "Funny.",
+  image: "./content/images/sheSaid.png",
+  category: "Egyéb",
+  techniques: [],
+  link: "",
+  additionalImages: []
+  },
+  {
+  title: "Hajó 2024",
+  description: "Jól használja a vékony vonalakat!",
+  image: "./content/images/hajo2024.png",
+  category: "Érdekes technika",
+  techniques: ["Run art"],
+  link: "",
+  additionalImages: []
   },
 ];
 
@@ -142,14 +191,14 @@ const techniques = [
   },
   {
     name: "Vésett effekt",
-    description: "<b><u>WIP</u></b><br>Angolul carved effect/embossed effect. A wilcomban a <i>Carving stamp</i> eszközzel hozható létre",
+    description: "<b><u>WIP</u></b><br>Angolul carved effect/embossed effect. A wilcomban a <i>Carving stamp</i> eszközzel hozható létre.",
     difficulty: "Beginner",
     demoImage: "./content/icons/carved.png",
     examples: [],
     steps: [
       {
-        name: "A két oldal designjának lehímzése",
-        description: "Hímezd le mindkét oldalt, de satin körvonal <i>helyett</i> használj <b>run</b>-t (egyenes, single pass vonal). <br><i>Alternatívaként zig-zag körvonal is használható!</i><br><b>Ha run-t használsz, fusson a leendő satin körvonal <i>külső</i> szélén, ha zig-zag-et akkor érjen ki szélével oda ahova a satin fog majd!</b>",
+        name: "T1",
+        description: "D1",
         images: []
       },
     ]
