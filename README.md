@@ -9,6 +9,16 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 
 ---
 
+#### Dev notes:
+
+- HA in the future publikálom, és Krisztina azt mondja ez vagy az a bejegyzés ne legyen kint, akkor ketté vállik az oldal, a publikus megy a himzes.github.io-ra, a saját célú lesz a po144.github.io/HimesWiki, és 1 config file lesz, a saját célúban, mindig azt szerkesztem, de kap minden egy "public" paramétert, és a másik publikus oldal kódja annyiban lesz módosítva, hogy ha public==true, akkor nem rendereli (amúgy elérhető a file jelenleg simán po144.github.io/HimzesWiki/config.js)
+- A jövőben két irányba mehet el a domain név kérdés:
+1. Marad a himzo.github.io redirect
+2. Le cloneolom/átrakom a himzo.github.io-ra a fő repo-t
+3. Cloudflare pages-ről megy a repo-bó, (mert így a repo lehet private)
+
+---
+
 #### To do/to add:
 
 > Webdev:
@@ -21,6 +31,8 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 - [ ] 10 klikk leesik a cérna easter egg (shake on click)
 - [ ] Debug: vékonyabb képernyőn rossz: additional images, a difficulty a noteokon rálóg
 - [ ] Footer with credits/év ami dátumból szedi és folyton frissül
+- [ ] Note kategóriák, de jobb felső difficulty taggel jelölve
+- [ ] Jobb szöveg formázás (pl. noteokba fontos szövegnek "important" class, és akkor pl. sötét zöld színben és kap szürke hátteret)
 > Technikák:
 - [ ] Puffy szivacs tut
 - [ ] Carving stamp tut
@@ -39,11 +51,13 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 - [ ] Cérna típusok elmagyarázása (különleges tulajdonságok, igények, gyakori bajok)
 - [ ] Anyag típusok explained (ppt, cordura, bőr)
 - [ ] Aláanyag típusok explained (mikor kell, mire jó; vasalós, víz oldadós, papír, fő)
+- [ ] Érdekes technológiák gyűjteménye (részletezve az executionjük a technikáknál; patent, tépőzár, felvasalós, hímzett akasztó, belenyomott lyuk)
 > Note---generic:
 - [ ] General tervezés tippek
 - [ ] Kommunikáció a megrendelővel/emailezés (mit nem fogadunk el, stb, belsős email lezárás)
 - [ ] Árszámítás részletei
 - [ ] Alsó cérna befogás tutorial
+- [ ] Érdekes wilcom eszközök (maybe inkább szét kéne szedni technikákba?/vagy külön színes tag és legyen a noteokon belül saját fejezete?)
 > Generic content:
 - [ ] Olajozási hely fotó
 - [X] Kétoldalú-nak kép
