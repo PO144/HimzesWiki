@@ -11,6 +11,10 @@
 let currentFilter = "All";
 let searchQuery = "";
 let viewMode = "gallery"; // "grid", "gallery", or "list"
+//Easter egg
+let logoClickCount = 0;
+let logoHasFallen = false;
+//Easter egg end
 
 // Get technique count for a specific technique
 function getTechniqueCount(techniqueName) {
@@ -635,6 +639,39 @@ function closeImageViewer() {
   syncBodyScrollLock();
 }
 
+//Easter egg
+function playLogoShake(logoImage) {
+  logoImage.classList.remove("logo-image--shake");
+  void logoImage.offsetWidth;
+  logoImage.classList.add("logo-image--shake");
+}
+
+function triggerLogoFall(logoImage) {
+  if (logoHasFallen) return;
+  logoHasFallen = true;
+
+  const rect = logoImage.getBoundingClientRect();
+  const clone = logoImage.cloneNode(true);
+
+  clone.className = "falling-logo-clone";
+  clone.style.left = `${rect.left}px`;
+  clone.style.top = `${rect.top}px`;
+  clone.style.width = `${rect.width}px`;
+  clone.style.height = `${rect.height}px`;
+
+  document.body.appendChild(clone);
+  logoImage.classList.add("logo-image--gone");
+
+  requestAnimationFrame(() => {
+    clone.classList.add("falling-logo-clone--animate");
+  });
+
+  clone.addEventListener("animationend", () => {
+    clone.remove();
+  }, { once: true });
+}
+//Easter egg over
+
 // Initialize application
 function init() {
   updateStats();
@@ -707,6 +744,27 @@ function init() {
       link.classList.add("active");
     });
   });
+
+  //Easter egg
+  const logoImage = document.querySelector(".logo-image");
+  if (logoImage) {
+    logoImage.addEventListener("click", () => {
+      if (logoHasFallen) return;
+
+      logoClickCount += 1;
+
+      if (logoClickCount >= 10) {
+        triggerLogoFall(logoImage);
+      } else {
+        playLogoShake(logoImage);
+      }
+    });
+
+    logoImage.addEventListener("animationend", () => {
+      logoImage.classList.remove("logo-image--shake");
+    });
+  }
+  //Easter egg over
 
   window.addEventListener("resize", () => {
     if (viewMode === "gallery") {

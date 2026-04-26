@@ -59,6 +59,60 @@ body {
   width: auto;
 }
 
+/*Easter egg related*/
+.logo-image {
+  height: 2rem;
+  width: auto;
+  cursor: default;
+  transform-origin: center center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/*Shake speed*/
+.logo-image--shake {
+  animation: logo-shake 0.34s ease-in-out;
+}
+
+.logo-image--gone {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.falling-logo-clone {
+  position: fixed;
+  pointer-events: none;
+  transform-origin: center center;
+  z-index: 2000;
+}
+
+/*Fall speed*/
+.falling-logo-clone--animate {
+  animation: logo-fall 2.2s cubic-bezier(0.22, 0.7, 0.2, 1) forwards;
+}
+
+/*Shake turn values*/
+@keyframes logo-shake {
+  0%   { transform: rotate(0deg); }
+  18%  { transform: rotate(-16deg); }
+  38%  { transform: rotate(18deg); }
+  56%  { transform: rotate(-12deg); }
+  74%  { transform: rotate(8deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes logo-fall {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(18px, 120vh, 0) rotate(135deg);
+    opacity: 0;
+  }
+}
+/*Easter egg over*/
+
 .logo-text {
   font-size: 1.125rem;
   font-weight: 600;
