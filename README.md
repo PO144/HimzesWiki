@@ -16,6 +16,7 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 1. Marad a himzo.github.io redirect
 2. Le cloneolom/átrakom a himzo.github.io-ra a fő repo-t
 3. Cloudflare pages-ről megy a repo-bó, (mert így a repo lehet private)
+- Ki kéne találni valami okosabb szöveg írási módot, pl egy text interpreter, vagy valami, mert ez a manuális írás elég szerencsétlen/fárasztó
 
 ---
 
@@ -28,7 +29,7 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 - [X] Video player?
 - [X] Multi image handling for demo images - !!! May improve in the future where the demo image param is a list, and it displayes the first one with an indicator in the bottom indicating multi image, and when clicked you can cycle left/right with arrows
 - [ ] Puffi/Wiki link/gomb? -maybe
-- [ ] 10 klikk leesik a cérna easter egg (shake on click)
+- [X] 10 klikk leesik a cérna easter egg (shake on click)
 - [ ] Debug: vékonyabb képernyőn rossz: additional images, a difficulty a noteokon rálóg
 - [ ] Footer with credits/év ami dátumból szedi és folyton frissül
 - [ ] Note kategóriák, de jobb felső difficulty taggel jelölve
