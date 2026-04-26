@@ -34,6 +34,7 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 - [ ] Footer with credits/év ami dátumból szedi és folyton frissül
 - [ ] Note kategóriák, de jobb felső difficulty taggel jelölve
 - [ ] Jobb szöveg formázás (pl. noteokba fontos szövegnek "important" class, és akkor pl. sötét zöld színben és kap szürke hátteret)
+- [X] Used by a technique-s modal-nál, ami kilistázza gelériában az összes folt primary képét, ami használja
 > Technikák:
 - [ ] Puffy szivacs tut
 - [ ] Carving stamp tut

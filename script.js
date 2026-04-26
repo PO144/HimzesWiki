@@ -21,6 +21,10 @@ function getTechniqueCount(techniqueName) {
   return patches.filter(p => p.techniques.includes(techniqueName)).length;
 }
 
+function getPatchesUsingTechnique(techniqueName) {
+  return patches.filter(patch => patch.techniques.includes(techniqueName));
+}
+
 // Get CSS class for difficulty badge
 function getDifficultyClass(difficulty) {
   const classes = {
@@ -434,17 +438,20 @@ function setFilter(category) {
   renderPatches();
 }
 
-function openImageCollectionModal(title, images) {
+function openImageCollectionModal(title, images, maxItems = 10) {
   if (!Array.isArray(images) || images.length === 0) return;
 
   const modal = document.getElementById("examples-modal");
   const titleElement = document.getElementById("examples-modal-title");
   const gallery = document.getElementById("examples-gallery");
 
+  const imagesToRender = typeof maxItems === "number"
+    ? images.slice(0, maxItems)
+    : images;
+
   titleElement.textContent = title;
 
-  gallery.innerHTML = images
-    .slice(0, 10)
+  gallery.innerHTML = imagesToRender
     .map((mediaPath, index) => renderCollectionMediaItem(mediaPath, `${title} ${index + 1}`))
     .join("");
 
@@ -462,6 +469,8 @@ function openTechniqueModal(techniqueName) {
   const body = document.getElementById("modal-body");
   const hasExamples = Array.isArray(technique.examples) && technique.examples.length > 0;
   const escapedTechniqueName = escapeForSingleQuotedJsString(technique.name);
+  const usedByPatches = getPatchesUsingTechnique(technique.name);
+  const hasUsedBy = usedByPatches.length > 0;
 
   const stepsHtml = technique.steps.length > 0 ? `
     <div class="modal-steps">
@@ -493,15 +502,29 @@ function openTechniqueModal(techniqueName) {
         </div>
         <div class="modal-copy-actions">
           <p class="modal-subtitle">${technique.description}</p>
-          ${hasExamples ? `
-            <button class="patch-link-btn modal-examples-btn" onclick="openExamplesModal('${escapedTechniqueName}')">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                <polyline points="15 3 21 3 21 9"/>
-                <line x1="10" y1="14" x2="21" y2="3"/>
-              </svg>
-              Examples
-            </button>
+          ${(hasExamples || hasUsedBy) ? `
+            <div class="modal-action-row">
+              ${hasExamples ? `
+                <button class="patch-link-btn modal-examples-btn" onclick="openExamplesModal('${escapedTechniqueName}')">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  Examples
+                </button>
+              ` : ""}
+              ${hasUsedBy ? `
+                <button class="patch-link-btn patch-additional-images-btn modal-used-by-btn" onclick="openUsedByModal('${escapedTechniqueName}')">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  Used By
+                </button>
+              ` : ""}
+            </div>
           ` : ""}
         </div>
       </div>
@@ -519,7 +542,22 @@ function openExamplesModal(techniqueName) {
 
   openImageCollectionModal(
     `${technique.name} - Examples`,
-    technique.examples
+    technique.examples,
+    10
+  );
+}
+
+function openUsedByModal(techniqueName) {
+  const technique = findTechnique(techniqueName);
+  if (!technique) return;
+
+  const usedByPatches = getPatchesUsingTechnique(technique.name);
+  if (usedByPatches.length === 0) return;
+
+  openImageCollectionModal(
+    `${technique.name} - Used By`,
+    usedByPatches.map(patch => patch.image),
+    null
   );
 }
 
@@ -529,7 +567,8 @@ function openPatchAdditionalImagesModal(patchTitle) {
 
   openImageCollectionModal(
     `${patch.title} - Additional Images`,
-    patch.additionalImages
+    patch.additionalImages,
+    10 //CAP is set here!!!!!!!!!!!
   );
 }
 
@@ -543,7 +582,6 @@ function openNoteModal(noteName) {
 
   const stepsHtml = note.steps.length > 0 ? `
     <div class="modal-steps">
-      <h3 class="modal-steps-title">Step-by-Step Guide</h3>
       ${note.steps.map((step, index) => `
         <div class="step-item">
           <div class="step-header">

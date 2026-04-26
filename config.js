@@ -59,15 +59,24 @@ const patches = [
     category: "Jó design",
     techniques: [],
     link: "https://www.sageventure.com/store/designs/SCUBA.html",
-    additionalImages: ["./content/images/rag_spray.jpg"]
+    additionalImages: []
   },
-    {
+  {
     title: "BSA Troop patch",
     description: "Incredibly detailed bump print that blends in perfectly color wise.",
     image: "./content/images/bsa/Troop760.jpg",
     category: "Érdekes technika",
-    techniques: ["Bump print"],
+    techniques: ["Vésett effekt"],
     link: "https://www.sageventure.com/store/designs/Troop760.html",
+    additionalImages: []
+  },
+  {
+    title: "Simonyi kulcstartó folt",
+    description: "Kétoldalas hímzés, lyukkal benne a kulcstartónak.",
+    image: "./content/images/simonyi.png",
+    category: "Érdekes technika",
+    techniques: ["Kétoldalú hímzés"],
+    link: "",
     additionalImages: []
   },
 ];
@@ -94,15 +103,10 @@ const patches = [
 const techniques = [
   {
     name: "Kétoldalú hímzés",
-    description: "Eltérő hímzett design a folt mindkét oldalán. Jól tag-en alkalmazható, ahol kerül rá egy lyuk, amin keresztül felfűzhető dolgokra.<br><i>Pl.: Simonyis kulcstartó by Andor</i>",
+    description: "Eltérő hímzett design a folt mindkét oldalán. Jól tag-en alkalmazható, ahol kerül rá egy lyuk, amin keresztül felfűzhető dolgokra.",
     difficulty: "Intermediate",
     demoImage: "./content/icons/twoSided-blank.png",
-    examples: ["./content/icons/ketoldal.png", "./content/images/rag_spray.jpg",
-      "./content/icons/ketoldal.png", "./content/images/rag_spray.jpg", 
-      "./content/icons/ketoldal.png", "./content/images/rag_spray.jpg", 
-      "./content/icons/ketoldal.png", "./content/images/rag_spray.jpg", 
-      "./content/icons/ketoldal.png", "./content/images/rag_spray.jpg"
-    ],
+    examples: ["./content/icons/twoSided-blank.png"],
     steps: [
       {
         name: "A két oldal designjának lehímzése",
@@ -132,6 +136,20 @@ const techniques = [
 	  {
         name: "Hímezd fel a satin körvonalat!",
         description: "Elsőként érdemes egy <b>zig-zag-et felhímezni</b>, hogy stabilabban helyben maradjon a két folt a satin hímzése közben!<br>Fontos, hogy ugyan oda hímezd, ahova a fóliára a run-t is<br><i>Megoldható ez pl. egy programmal, amiben van egy run keret, egy zig-zag keret, meg egy satin keret más színekben. Ezek után Sanyin beállítod azonos színre és bekapcsolod a szín utáni stoppot.</i><br><b>Fontos</b>, hogy ha nem standard fehér cérnát használsz a végső keretnek, akkor fogj be custom alsó szálat (how to a noteokban), mert különben az egyik oldalon lesz a satin közepén egy fehér sáv!",
+        images: []
+      },
+    ]
+  },
+  {
+    name: "Vésett effekt",
+    description: "<b><u>WIP</u></b><br>Angolul carved effect/embossed effect. A wilcomban a <i>Carving stamp</i> eszközzel hozható létre",
+    difficulty: "Beginner",
+    demoImage: "./content/icons/carved.png",
+    examples: [],
+    steps: [
+      {
+        name: "A két oldal designjának lehímzése",
+        description: "Hímezd le mindkét oldalt, de satin körvonal <i>helyett</i> használj <b>run</b>-t (egyenes, single pass vonal). <br><i>Alternatívaként zig-zag körvonal is használható!</i><br><b>Ha run-t használsz, fusson a leendő satin körvonal <i>külső</i> szélén, ha zig-zag-et akkor érjen ki szélével oda ahova a satin fog majd!</b>",
         images: []
       },
     ]
