@@ -317,11 +317,27 @@ body {
   margin-bottom: 3rem;
 }
 
-/* Gallery View - Masonry-like with full images */
+/* Gallery View - Masonry card layout */
 .patch-grid--gallery {
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 1.5rem;
-  align-items: start;
+  display: block;
+  column-width: 350px;
+  column-gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.patch-card--gallery {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 1.5rem;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  vertical-align: top;
+}
+
+.patch-grid--gallery .empty-state {
+  display: block;
+  width: 100%;
 }
 
 /* List View - Single column rows */
