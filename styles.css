@@ -340,6 +340,14 @@ body {
   width: 100%;
 }
 
+/* Old gallery view:
+.patch-grid--gallery {
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+*/
+
 /* List View - Single column rows */
 .patch-grid--list {
   grid-template-columns: 1fr;
