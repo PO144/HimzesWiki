@@ -220,7 +220,7 @@ const techniques = [
   },
   {
     name: "Vésett effekt",
-    description: "<b><u>WIP</u></b><br>Angolul carved effect/embossed effect. A wilcomban a <i>Carving stamp</i> eszközzel hozható létre.",
+    description: "Angolul carved effect/embossed effect. A wilcomban a <i>Carving stamp</i> eszközzel hozható létre.",
     difficulty: "Beginner",
     demoImage: "./content/icons/carved.png",
     examples: ["./content/images/kísértet_explained.png", "./content/images/kísértet_day.png", "./content/images/kísértet_night.png"],
@@ -280,7 +280,7 @@ const techniques = [
 const notes = [
   {
     name: "Olajozás",
-    externalDescription: "<b><u>WIP</u></b><br>Hogyan, mikor és mivel kell Sanyit megolajozni.",
+    externalDescription: "Hogyan, mikor és mivel kell Sanyit megolajozni.",
     internalDescription: "Sanyit viszonylag gyakran olajozni kell! Ehhez a tőle <i>jobbra levő polcon</i> elhelyezett piros végű <b>fecskendőt</b> hasznájluk.<br>Fontos, hogy csak egy <b>pici</b> olajat kell tenni a pontokra.<br><br>Olajozáskor érintsd a ponthoz a tű hegyét, majd <b>gyengéden</b> kezd el nyomni a dugattyút. Amint egy kicsi kijön, meg is vagy! Ha nem fedte be teljesen a kívánt részt, a hegyével szépen oda \"ecsetelheted\"!<br><br>Sanyi papiron mindig szól, amikor olajozni kell. Ilyenkor megjelenik egy popup a képernyőn, ami megmondja, melyik pontnak van itt az olajozási idelye. Két opció van: <i>Later</i> és <i>Done</i>; csak akkor nyomj done-t, ha megcsináltad. <i>(A done semmit nem csinál azon kívül, hogy lejegyzi sanyiban, hogy meg lett olajozva.)</i><br><sub>Amikor olajozol, kérlek figyelj oda, hogy ne olajozz össze mindent is, mert nagyon zavaró később.</sub>",
     demoImage: "",
     unOrdered: true,
