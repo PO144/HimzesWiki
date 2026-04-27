@@ -1100,8 +1100,24 @@ body {
   }
 
   .examples-gallery {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 0.75rem;
+  }
+
+  .examples-gallery-item {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .collection-media,
+  .collection-media--true-size {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .collection-media--video {
+    max-height: 60vh;
   }
 
   .collection-media {
