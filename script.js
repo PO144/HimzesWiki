@@ -197,14 +197,14 @@ function renderPatches() {
 
   grid.innerHTML = filtered.map(patch => `
     <article class="patch-card patch-card--${viewMode}" data-category="${patch.category}">
-      <div class="patch-image-container" onclick="openImageViewer('${patch.image}')">
+      <div class="patch-image-container" onclick="openImageViewer('${escapeForSingleQuotedJsString(patch.image)}')">
         <img src="${patch.image}" alt="${patch.title}" class="patch-image" loading="lazy">
       </div>
       <div class="patch-content">
         <h3 class="patch-title">${patch.title}</h3>
         <p class="patch-description">${patch.description}</p>
         <div class="patch-techniques">
-          ${patch.techniques.map(t => `<span class="technique-tag" onclick="openTechniqueModal('${t}')">${t}</span>`).join("")}
+          ${patch.techniques.map(t => `<span class="technique-tag" onclick="openTechniqueModal('${escapeForSingleQuotedJsString(t)}')">${t}</span>`).join("")}
         </div>
         ${(patch.link || (Array.isArray(patch.additionalImages) && patch.additionalImages.length > 0)) ? `
           <div class="patch-actions">
@@ -379,7 +379,7 @@ function renderTechniques() {
   }
 
   grid.innerHTML = filtered.map(tech => `
-    <div class="technique-card" onclick="openTechniqueModal('${tech.name}')">
+    <div class="technique-card" onclick="openTechniqueModal('${escapeForSingleQuotedJsString(tech.name)}')">
       <span class="difficulty-badge ${getDifficultyClass(tech.difficulty)}">${tech.difficulty}</span>
       <img src="${tech.demoImage}" alt="${tech.name}" class="technique-thumb" onerror="this.style.display='none'">
       <div class="technique-info">
@@ -400,7 +400,8 @@ function renderNotes() {
     if (searchQuery === "") return true;
     const query = searchQuery.toLowerCase();
     return note.name.toLowerCase().includes(query) ||
-           note.description.toLowerCase().includes(query);
+           (note.externalDescription || "").toLowerCase().includes(query) ||
+           (note.internalDescription || "").toLowerCase().includes(query);
   });
 
   if (filtered.length === 0) {
@@ -494,7 +495,7 @@ function openTechniqueModal(techniqueName) {
 
   body.innerHTML = `
     <div class="modal-header">
-      <img src="${technique.demoImage}" alt="${technique.name}" class="modal-demo-image" onclick="openImageViewer('${technique.demoImage}')" onerror="this.style.display='none'">
+      <img src="${technique.demoImage}" alt="${technique.name}" class="modal-demo-image" onclick="openImageViewer('${escapeForSingleQuotedJsString(technique.demoImage)}')" onerror="this.style.display='none'">
       <div class="modal-title-section">
         <div class="modal-title-row">
           <h2 class="modal-title">${technique.name}</h2>

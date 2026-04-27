@@ -38,6 +38,9 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 - [X] Függőlegesen is adaptív oszlopok a patch gallery view-ban
 - [X] Kívül megjelenő, és belül megjelenő description szétválasztása a note-okban
 - [X] Kiválasztható ordered/unordered list beállítás a note-okban
+- [ ] Telefonon is működjön
+- [ ] WIP param+sáv: narancssárga sáv noteokon és technique-eken, alul, beleírva work in progress, boolean, default false
+- [X] Notes search returns everything? <i><--Didn't get updated when description got split, searched the old nonexistent field
 > Technikák:
 - [ ] Puffy szivacs tut
 - [ ] Carving stamp tut
