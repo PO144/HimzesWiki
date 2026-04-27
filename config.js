@@ -170,6 +170,7 @@ const patches = [
 //							Advanced:		requires advanced machine/software knowledge, and a fair amount of skill/dexterity
 // - demoImage: Path to demonstrator image (required)
 // - examples: Array of example image/video paths, max 10 (optional, can be [])
+// - workInProgress: If true, shows a Work In Progress badge on the card and modal (optional, defaults to false)
 // - steps: Array of step objects (required, can be empty [])
 //   Each step has:
 //   - name: Step title (required)
@@ -183,6 +184,7 @@ const techniques = [
     difficulty: "Intermediate",
     demoImage: "./content/icons/twoSided-blank.png",
     examples: [],
+    workInProgress: false,
     steps: [
       {
         name: "A két oldal designjának lehímzése",
@@ -222,6 +224,7 @@ const techniques = [
     difficulty: "Beginner",
     demoImage: "./content/icons/carved.png",
     examples: [],
+    workInProgress: true,
     steps: [
       {
         name: "T1",
@@ -243,6 +246,7 @@ const techniques = [
 // - internalDescription: Description shown inside the note modal (required)
 // - demoImage: Path to thumbnail / demonstrator image (optional, can be "" or omitted)
 // - unOrdered: If true, note modal steps use non-numbered markers (optional, defaults to false)
+// - workInProgress: If true, shows a Work In Progress badge on the card and modal (optional, defaults to false)
 // - steps: Array of step objects (required, can be empty [])
 //   Each step has:
 //   - name: Step title (required)
@@ -257,6 +261,7 @@ const techniques = [
   internalDescription: "Some more stuff",
   demoImage: "",
   unOrdered: true,
+  workInProgress: false,
   steps: [
     {
       name: "Step 1",
@@ -279,6 +284,7 @@ const notes = [
     internalDescription: "Sanyit viszonylag gyakran olajozni kell! Ehhez a tőle <i>jobbra levő polcon</i> elhelyezett piros végű <b>fecskendőt</b> hasznájluk.<br>Fontos, hogy csak egy <b>pici</b> olajat kell tenni a pontokra.<br><br>Olajozáskor érintsd a ponthoz a tű hegyét, majd <b>gyengéden</b> kezd el nyomni a dugattyút. Amint egy kicsi kijön, meg is vagy! Ha nem fedte be teljesen a kívánt részt, a hegyével szépen oda \"ecsetelheted\"!<br><br>Sanyi papiron mindig szól, amikor olajozni kell. Ilyenkor megjelenik egy popup a képernyőn, ami megmondja, melyik pontnak van itt az olajozási idelye. Két opció van: <i>Later</i> és <i>Done</i>; csak akkor nyomj done-t, ha megcsináltad. <i>(A done semmit nem csinál azon kívül, hogy lejegyzi sanyiban, hogy meg lett olajozva.)</i><br><sub>Amikor olajozol, kérlek figyelj oda, hogy ne olajozz össze mindent is, mert nagyon zavaró később.</sub>",
     demoImage: "",
     unOrdered: true,
+    workInProgress: true,
     steps: [
       {
         name: "<i>\"A\"</i> PONT",

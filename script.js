@@ -379,8 +379,9 @@ function renderTechniques() {
   }
 
   grid.innerHTML = filtered.map(tech => `
-    <div class="technique-card" onclick="openTechniqueModal('${escapeForSingleQuotedJsString(tech.name)}')">
+    <div class="technique-card ${tech.workInProgress ? 'technique-card--wip' : ''}" onclick="openTechniqueModal('${escapeForSingleQuotedJsString(tech.name)}')">
       <span class="difficulty-badge ${getDifficultyClass(tech.difficulty)}">${tech.difficulty}</span>
+      ${tech.workInProgress ? `<span class="wip-badge">Work In Progress</span>` : ""}
       <img src="${tech.demoImage}" alt="${tech.name}" class="technique-thumb" onerror="this.style.display='none'">
       <div class="technique-info">
         <h4 class="technique-name">${tech.name}</h4>
@@ -414,7 +415,8 @@ function renderNotes() {
   }
 
   grid.innerHTML = filtered.map(note => `
-    <div class="technique-card" onclick="openNoteModal('${note.name.replace(/'/g, "\\'")}')">
+    <div class="technique-card ${note.workInProgress ? 'technique-card--wip' : ''}" onclick="openNoteModal('${note.name.replace(/'/g, "\\'")}')">
+      ${note.workInProgress ? `<span class="wip-badge">Work In Progress</span>` : ""}
       ${note.demoImage ? `<img src="${note.demoImage}" alt="${note.name}" class="technique-thumb" onerror="this.style.display='none'">` : ""}
       <div class="technique-info">
         <h4 class="technique-name">${note.name}</h4>
@@ -472,6 +474,7 @@ function openTechniqueModal(techniqueName) {
   const escapedTechniqueName = escapeForSingleQuotedJsString(technique.name);
   const usedByPatches = getPatchesUsingTechnique(technique.name);
   const hasUsedBy = usedByPatches.length > 0;
+  const isWorkInProgress = technique.workInProgress === true;
 
   const stepsHtml = technique.steps.length > 0 ? `
     <div class="modal-steps">
@@ -500,6 +503,7 @@ function openTechniqueModal(techniqueName) {
         <div class="modal-title-row">
           <h2 class="modal-title">${technique.name}</h2>
           <span class="difficulty-badge ${getDifficultyClass(technique.difficulty)}">${technique.difficulty}</span>
+          ${isWorkInProgress ? `<span class="wip-badge">Work In Progress</span>` : ""}
         </div>
         <div class="modal-copy-actions">
           <p class="modal-subtitle">${technique.description}</p>
@@ -581,6 +585,7 @@ function openNoteModal(noteName) {
   const modal = document.getElementById("technique-modal");
   const body = document.getElementById("modal-body");
   const isUnOrdered = note.unOrdered === true;
+  const isWorkInProgress = note.workInProgress === true;
 
   const stepsHtml = note.steps.length > 0 ? `
     <div class="modal-steps">
@@ -605,7 +610,10 @@ function openNoteModal(noteName) {
     <div class="modal-header">
       ${note.demoImage ? `<img src="${note.demoImage}" alt="${note.name}" class="modal-demo-image" onclick="openImageViewer('${note.demoImage}')" onerror="this.style.display='none'">` : ""}
       <div class="modal-title-section">
-        <h2 class="modal-title">${note.name}</h2>
+        <div class="modal-title-row">
+          <h2 class="modal-title">${note.name}</h2>
+          ${isWorkInProgress ? `<span class="wip-badge">Work In Progress</span>` : ""}
+        </div>
         <p class="modal-subtitle">${note.internalDescription || note.description || ""}</p>
       </div>
     </div>
