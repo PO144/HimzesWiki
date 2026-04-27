@@ -223,7 +223,7 @@ const techniques = [
     description: "<b><u>WIP</u></b><br>Angolul carved effect/embossed effect. A wilcomban a <i>Carving stamp</i> eszközzel hozható létre.",
     difficulty: "Beginner",
     demoImage: "./content/icons/carved.png",
-    examples: [],
+    examples: ["./content/images/kísértet_explained.png", "./content/images/kísértet_day.png", "./content/images/kísértet_night.png"],
     workInProgress: true,
     steps: [
       {
