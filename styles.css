@@ -1081,16 +1081,15 @@ body {
   }
 
   .modal-overlay {
-    padding: 0;
+    padding: 0.5rem;
     overflow-x: hidden;
   }
 
   .modal-content,
   .modal-content--examples {
-    width: 100%;
-    max-width: 100%;
-    max-height: 100dvh;
-    border-radius: 0;
+    width: calc(100% - 1rem);
+    max-width: calc(100% - 1rem);
+    max-height: calc(100dvh - 1rem);
     overflow-x: hidden;
   }
 
@@ -1104,7 +1103,6 @@ body {
     margin-bottom: 0.75rem;
     padding-right: 2.75rem;
     max-width: 100%;
-    overflow-x: hidden;
   }
 
   .examples-gallery {
@@ -1114,7 +1112,6 @@ body {
     width: 100%;
     min-width: 0;
     max-width: 100%;
-    overflow-x: hidden;
   }
 
   .examples-gallery-item {
@@ -1125,19 +1122,18 @@ body {
   }
 
   .collection-media,
-  .collection-media--true-size,
   .collection-media--video {
-    display: block;
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
+    max-width: 100%;
     height: auto;
     max-height: 60dvh;
-    flex: 0 1 auto;
+  }
+
+  .collection-media--true-size {
+    max-width: 100%;
+    height: auto;
   }
 
   .video-preview-fallback {
-    width: 100%;
     max-width: 100%;
   }
 
@@ -1190,30 +1186,6 @@ body {
   .step-description,
   .step-images {
     margin-left: 0;
-  }
-}
-
-@media (max-width: 423px) {
-  .modal-body {
-    padding: 0.5rem;
-  }
-
-  .examples-modal-header {
-    padding-right: 2.4rem;
-  }
-
-  .examples-gallery {
-    gap: 0.5rem;
-  }
-
-  .examples-gallery-item {
-    border-radius: 0.375rem;
-  }
-
-  .collection-media,
-  .collection-media--true-size,
-  .collection-media--video {
-    max-height: 52dvh;
   }
 }
 
