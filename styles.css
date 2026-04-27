@@ -118,6 +118,10 @@ body {
   font-size: 1.125rem;
   font-weight: 600;
   letter-spacing: -0.025em;
+  
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .search-container {
