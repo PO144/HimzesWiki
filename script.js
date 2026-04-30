@@ -441,20 +441,16 @@ function setFilter(category) {
   renderPatches();
 }
 
-function openImageCollectionModal(title, images, maxItems = 10) {
+function openImageCollectionModal(title, images) {
   if (!Array.isArray(images) || images.length === 0) return;
 
   const modal = document.getElementById("examples-modal");
   const titleElement = document.getElementById("examples-modal-title");
   const gallery = document.getElementById("examples-gallery");
 
-  const imagesToRender = typeof maxItems === "number"
-    ? images.slice(0, maxItems)
-    : images;
-
   titleElement.textContent = title;
 
-  gallery.innerHTML = imagesToRender
+  gallery.innerHTML = images
     .map((mediaPath, index) => renderCollectionMediaItem(mediaPath, `${title} ${index + 1}`))
     .join("");
 
@@ -488,7 +484,7 @@ function openTechniqueModal(techniqueName) {
           ${step.description ? `<p class="step-description">${step.description}</p>` : ''}
           ${step.images && step.images.length > 0 ? `
             <div class="step-images">
-              ${step.images.slice(0, 2).map(mediaPath => renderStepMediaPreview(mediaPath, index)).join("")}
+              ${step.images.map(mediaPath => renderStepMediaPreview(mediaPath, index)).join("")}
             </div>
           ` : ''}
         </div>
@@ -547,8 +543,7 @@ function openExamplesModal(techniqueName) {
 
   openImageCollectionModal(
     `${technique.name} - Examples`,
-    technique.examples,
-    10
+    technique.examples
   );
 }
 
@@ -572,8 +567,7 @@ function openPatchAdditionalImagesModal(patchTitle) {
 
   openImageCollectionModal(
     `${patch.title} - Additional Images`,
-    patch.additionalImages,
-    10 //CAP is set here!!!!!!!!!!!
+    patch.additionalImages
   );
 }
 
@@ -598,7 +592,7 @@ function openNoteModal(noteName) {
           ${step.description ? `<p class="step-description">${step.description}</p>` : ''}
           ${step.images && step.images.length > 0 ? `
             <div class="step-images">
-              ${step.images.slice(0, 2).map(mediaPath => renderStepMediaPreview(mediaPath, index)).join("")}
+              ${step.images.map(mediaPath => renderStepMediaPreview(mediaPath, index)).join("")}
             </div>
           ` : ''}
         </div>

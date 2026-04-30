@@ -46,7 +46,7 @@ const categories = [
 // - category: Must match one from categories array above (required)
 // - techniques: Array of technique names - must match names in techniques array (required)
 // - link: External URL (optional - if set, shows a link button)
-// - additionalImages: Array of image/video paths, max 10 (optional, can be [])
+// - additionalImages: Array of image/video paths (optional, can be [])
 //
 // TEMPLATE:
 /*
@@ -201,13 +201,13 @@ Tépőzáras folt; Hímzett háttér; Run art; Vegyes glowie és normál cérna;
 //							Intermediate:	requires somewhat higher level of machine/software knowledge, plus some skill and dexterity
 //							Advanced:		requires advanced machine/software knowledge, and a fair amount of skill/dexterity
 // - demoImage: Path to demonstrator image (required)
-// - examples: Array of example image/video paths, max 10 (optional, can be [])
+// - examples: Array of example image/video paths (optional, can be [])
 // - workInProgress: If true, shows a Work In Progress badge on the card and modal (optional, defaults to false)
 // - steps: Array of step objects (required, can be empty [])
 //   Each step has:
 //   - name: Step title (required)
 //   - description: Step description (optional, can be "" or omitted)
-//   - images: Array of image/video paths, max 2 (optional, can be [] or omitted)
+//   - images: Array of image/video paths (optional, can be [] or omitted)
 
 const techniques = [
   {
@@ -283,7 +283,7 @@ const techniques = [
 //   Each step has:
 //   - name: Step title (required)
 //   - description: Step description (optional, can be "" or omitted)
-//   - images: Array of image paths, max 2 (optional, can be [] or omitted)
+//   - images: Array of image paths (optional, can be [] or omitted)
 //
 // TEMPLATE
 /*
