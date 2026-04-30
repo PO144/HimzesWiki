@@ -325,9 +325,14 @@ const notes = [
       },
       {
         name: "<i>\"B\"</i> PONT",
-        description: "Ezt a pontot <b>hetente</b> egyszer kell megolajozni.",
-        images: []
-      }
+        description: "Ezeket a pontokat <b>hetente</b> egyszer kell megolajozni.",
+        images: ["./content/images/olajB_2.png", "./content/images/olajB.png", "./content/images/channel.png"]
+      },
+      {
+        name: "Egyéb olajozási pont",
+        description: "",
+        images: ["./content/images/olaj_néha.png"]
+      },
     ]
   },
 ];
