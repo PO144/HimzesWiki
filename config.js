@@ -64,7 +64,7 @@ const categories = [
 const patches = [
   {
     title: "BSA Scuba",
-    description: "Incredibly simple design, and yet it slaps. Worth noting, that the background fabric doesn't show once.",
+    description: "Nagyon egyszerű, de jól kinéző design. Az alap ötlet a BSA square not rendszerét koppintja le (ami pedig a ribbon-bar-okból ered)",
     image: "./content/images/bsa/SCUBA.jpg",
     //KÉP TESZTEK
     //image: "./images/rag_spray.jpg",
@@ -76,7 +76,7 @@ const patches = [
   },
   {
     title: "BSA Troop patch",
-    description: "Incredibly detailed bump print that blends in perfectly color wise.",
+    description: "Nagyon részletes, saját vonalvastagsággal rendelkező vésett effekt (azaz a vésett részt alkotó vonalaknak két éle van)",
     image: "./content/images/bsa/Troop760.jpg",
     category: "Érdekes technika",
     techniques: ["Vésett effekt", "Hímzett háttér"],
@@ -130,8 +130,8 @@ const patches = [
   },
   {
   title: "SZÉF KB folt",
-  description: "Használ ezüst cérnát + teljesen behímzett a folt, nem látszik ki a cordura!<br><sub>Needs bigger image.</sub>",
-  image: "./content/images/kb.png",
+  description: "Használ ezüst cérnát + teljesen behímzett a folt, nem látszik ki a cordura!",
+  image: "./content/images/kb_hd.png",
   category: "Érdekes technika",
   techniques: ["Hímzett háttér"],
   link: "",
@@ -155,7 +155,39 @@ const patches = [
   link: "",
   additionalImages: []
   },
+  {
+  title: "Lanosch 24 órás nyitás",
+  description: "3 színű színátmenet kis távon",
+  image: "./content/images/lanosch24h.png",
+  category: "Érdekes technika",
+  techniques: ["Színátmenet"],
+  link: "",
+  additionalImages: []
+  },
+  {
+  title: "Raft",
+  description: "Kicsi-kompakt, és szép a kék",
+  image: "./content/images/raft.png",
+  category: "Jó design",
+  techniques: [],
+  link: "",
+  additionalImages: []
+  },
+  {
+  title: "SLIP Szent Andor",
+  description: "SLIP Gépészkari Napok (2026) egyik foltja, ólomüveg kinézettel",
+  image: "./content/images/Szent_Andor.png",
+  category: "Jó design",
+  techniques: [],
+  link: "",
+  additionalImages: []
+  },
 ];
+//Jelenleg létező technikák:
+/*
+Tépőzáras folt; Hímzett háttér; Run art; Vegyes glowie és normál cérna; Azonos színnel hímzés; Kétoldalú hímzés; Vésett effekt; Színátmenet
+
+*/
 
 
 // ============================================================================

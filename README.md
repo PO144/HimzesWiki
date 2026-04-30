@@ -66,6 +66,7 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 - [ ] Árszámítás részletei
 - [ ] Alsó cérna befogás tutorial
 - [ ] Érdekes wilcom eszközök (maybe inkább szét kéne szedni technikákba?/vagy külön színes tag és legyen a noteokon belül saját fejezete?)
+- [ ] Függöny kezelés
 > Generic content:
 - [ ] Olajozási hely fotó
 - [X] Kétoldalú-nak kép
