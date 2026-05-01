@@ -146,6 +146,39 @@ function renderStepMediaPreview(mediaPath, stepIndex) {
 }
 //VIDEO SUPPORT END
 
+function renderNoteExtraMediaPreview(mediaPath, noteName, imageIndex) {
+  const escapedPath = escapeForSingleQuotedJsString(mediaPath);
+  const safeAlt = String(`${noteName} extra image ${imageIndex + 1}`).replace(/"/g, "&quot;");
+
+  if (isVideoPath(mediaPath)) {
+    return `
+      <div class="step-media-preview media-preview media-preview--video" onclick="openMediaViewer('${escapedPath}')">
+        <img src="${VIDEO_PREVIEW_FALLBACK}" alt="" class="video-preview-fallback" aria-hidden="true">
+        <video
+          src="${mediaPath}"
+          class="step-image step-image--video"
+          preload="metadata"
+          muted
+          playsinline
+          onloadeddata="this.previousElementSibling.style.display='none'"
+          onerror="this.style.display='none'"
+        ></video>
+        ${VIDEO_PLAY_BADGE}
+      </div>
+    `;
+  }
+
+  return `
+    <img
+      src="${mediaPath}"
+      alt="${safeAlt}"
+      class="step-image"
+      onclick="openMediaViewer('${escapedPath}')"
+      onerror="this.style.display='none'"
+    >
+  `;
+}
+
 function escapeForSingleQuotedJsString(value) {
   return String(value)
     .replace(/\\/g, "\\\\")
@@ -579,6 +612,11 @@ function openNoteModal(noteName) {
   const modal = document.getElementById("technique-modal");
   const body = document.getElementById("modal-body");
   const isUnOrdered = note.unOrdered === true;
+  const extraImagesHtml = note.extraImages && note.extraImages.length > 0 ? `
+    <div class="note-extra-images">
+      ${note.extraImages.map((mediaPath, index) => renderNoteExtraMediaPreview(mediaPath, note.name, index)).join("")}
+    </div>
+  ` : "";
   const isWorkInProgress = note.workInProgress === true;
 
   const stepsHtml = note.steps.length > 0 ? `
@@ -611,6 +649,7 @@ function openNoteModal(noteName) {
         <p class="modal-subtitle">${note.internalDescription || note.description || ""}</p>
       </div>
     </div>
+    ${extraImagesHtml}
     ${stepsHtml}
   `;
 

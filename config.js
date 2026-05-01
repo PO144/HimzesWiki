@@ -277,6 +277,7 @@ const techniques = [
 // - externalDescription: Description shown on the note card in the grid (required)
 // - internalDescription: Description shown inside the note modal (required)
 // - demoImage: Path to thumbnail / demonstrator image (optional, can be "" or omitted)
+// - extraImages: Array of image/video paths shown in the note modal under the internal description (optional, can be [])
 // - unOrdered: If true, note modal steps use non-numbered markers (optional, defaults to false)
 // - workInProgress: If true, shows a Work In Progress badge on the card and modal (optional, defaults to false)
 // - steps: Array of step objects (required, can be empty [])
@@ -311,26 +312,27 @@ const techniques = [
 
 const notes = [
   {
-    name: "Olajozás",
+    name: "OLAJOZÁS",
     externalDescription: "Hogyan, mikor és mivel kell Sanyit megolajozni.",
-    internalDescription: "Sanyit viszonylag gyakran olajozni kell! Ehhez a tőle <i>jobbra levő polcon</i> elhelyezett piros végű <b>fecskendőt</b> hasznájluk.<br>Fontos, hogy csak egy <b>pici</b> olajat kell tenni a pontokra.<br><br>Olajozáskor érintsd a ponthoz a tű hegyét, majd <b>gyengéden</b> kezd el nyomni a dugattyút. Amint egy kicsi kijön, meg is vagy! Ha nem fedte be teljesen a kívánt részt, a hegyével szépen oda \"ecsetelheted\"!<br><br>Sanyi papiron mindig szól, amikor olajozni kell. Ilyenkor megjelenik egy popup a képernyőn, ami megmondja, melyik pontnak van itt az olajozási idelye. Két opció van: <i>Later</i> és <i>Done</i>; csak akkor nyomj done-t, ha megcsináltad. <i>(A done semmit nem csinál azon kívül, hogy lejegyzi sanyiban, hogy meg lett olajozva.)</i><br><sub>Amikor olajozol, kérlek figyelj oda, hogy ne olajozz össze mindent is, mert nagyon zavaró később.</sub>",
+    internalDescription: "Sanyit viszonylag gyakran olajozni kell! Ehhez a tőle <i>jobbra levő polcon</i> elhelyezett piros végű <b>fecskendőt</b> hasznájluk.<br>Fontos, hogy csak <b>egy csepp</b> olajat kell tenni a pontokra.<br><br>Olajozáskor érintsd a ponthoz a tű hegyét, majd <b>gyengéden</b> kezd el nyomni a dugattyút. Amint egy kicsi kijön, meg is vagy! Ha nem fedte be teljesen a kívánt részt, a hegyével szépen oda \"ecsetelheted\"! <i>(Csak az A pontnál releváns.)</i><br><br>Sanyi papiron mindig szól, amikor olajozni kell. <i><u>(Csak úgy random nem kell olajozgatni!)</u></i> Ilyenkor megjelenik egy popup a képernyőn, ami megmondja, melyik pontnak van itt az olajozási idelye. Két opció van: <i>Later</i> és <i>Done</i>; csak akkor nyomj done-t, ha megcsináltad.<i>(A done semmit nem csinál azon kívül, hogy lejegyzi sanyiban, hogy meg lett olajozva.)</i><br><sub>Amikor olajozol, kérlek figyelj oda, hogy ne olajozz össze mindent is, mert nagyon zavaró később, illetve rácsöpöghet az anyagra! </sub>",
     demoImage: "",
+    extraImages: ["./content/images/oil_sticker.png", "./content/images/shelf_syringe.png", "./content/images/syringe.png",  "./content/images/olaj_prompt.png"],
     unOrdered: true,
     workInProgress: true,
     steps: [
       {
         name: "<i>\"A\"</i> PONT",
-        description: "Ezt a pontot <b>naponta</b> egyszer kell megolajozni. A cél, hogy a kis peremet olajozd, ami sötét pirossal van kiemelve.",
+        description: "Ezt a pontot <b>naponta</b> egyszer kell megolajozni. A cél, hogy a kis peremet olajozd, ami sötétpirossal van kiemelve.",
         images: ["./content/images/olajA_nagy.png", "./content/images/olajA_zoom.png"]
       },
       {
         name: "<i>\"B\"</i> PONT",
-        description: "Ezeket a pontokat <b>hetente</b> egyszer kell megolajozni.",
+        description: "Ezeket a pontokat <b>hetente</b> egyszer kell megolajozni. Csak cseppents be egy cseppnyi olajat a lyukakon, jó helyre fog menni.<br><i>Ahhoz, hogy az oldalánál levő lyukhoz hozzá férj, át kell állítanod a hímzőgépet az 1-es csatornára a \"Manuális színváltás\" menüponttal.</i>",
         images: ["./content/images/olajB_2.png", "./content/images/olajB.png", "./content/images/channel.png"]
       },
       {
         name: "Egyéb olajozási pont",
-        description: "",
+        description: "<b>Néha</b> a képen mutatott felső rugókat is megolajozzuk. Ezt hátulról (ahonnan a fotó készült) tudod megtenni. <i>Egy csepp</i> elég, lefolyik még az alattuk levő rugókra is.<br><i>A képen nem látható rugókra is igaz természetesen!</i>",
         images: ["./content/images/olaj_néha.png"]
       },
     ]
