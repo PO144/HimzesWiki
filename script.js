@@ -11,6 +11,7 @@
 let currentFilter = "All";
 let searchQuery = "";
 let viewMode = "gallery"; // "grid", "gallery", or "list"
+let currentNoteTagFilter = "All";
 //Easter egg
 let logoClickCount = 0;
 let logoHasFallen = false;
@@ -46,6 +47,20 @@ function findNote(name) {
 
 function findPatch(title) {
   return patches.find(patch => patch.title === title);
+}
+
+function getUsedNoteTags() {
+  const usedTags = [];
+  const seen = new Set();
+
+  notes.forEach(note => {
+    if (note.tag && !seen.has(note.tag)) {
+      seen.add(note.tag);
+      usedTags.push(note.tag);
+    }
+  });
+
+  return usedTags;
 }
 
 function syncBodyScrollLock() {
@@ -217,6 +232,25 @@ function renderFilterButtons() {
   container.querySelectorAll(".filter-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       setFilter(btn.dataset.category);
+    });
+  });
+}
+
+function renderNoteTagFilterButtons() {
+  const container = document.getElementById("note-filter-buttons");
+  if (!container) return;
+
+  const allTags = ["All", ...getUsedNoteTags()];
+
+  container.innerHTML = allTags.map(tag => `
+    <button class="filter-btn ${tag === currentNoteTagFilter ? 'active' : ''}" data-note-tag="${tag}">
+      ${tag}
+    </button>
+  `).join("");
+
+  container.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      setNoteTagFilter(btn.dataset.noteTag);
     });
   });
 }
@@ -449,11 +483,16 @@ function renderNotes() {
   if (!grid) return;
 
   const filtered = notes.filter(note => {
-    if (searchQuery === "") return true;
-    const query = searchQuery.toLowerCase();
-    return note.name.toLowerCase().includes(query) ||
-           (note.externalDescription || "").toLowerCase().includes(query) ||
-           (note.internalDescription || "").toLowerCase().includes(query);
+    const matchesTag = currentNoteTagFilter === "All" || note.tag === currentNoteTagFilter;
+
+    const matchesSearch = searchQuery === "" || (() => {
+      const query = searchQuery.toLowerCase();
+      return note.name.toLowerCase().includes(query) ||
+             (note.externalDescription || "").toLowerCase().includes(query) ||
+             (note.internalDescription || "").toLowerCase().includes(query);
+    })();
+
+    return matchesTag && matchesSearch;
   });
 
   if (filtered.length === 0) {
@@ -490,6 +529,12 @@ function setFilter(category) {
   currentFilter = category;
   renderFilterButtons();
   renderPatches();
+}
+
+function setNoteTagFilter(tag) {
+  currentNoteTagFilter = tag;
+  renderNoteTagFilterButtons();
+  renderNotes();
 }
 
 function openImageCollectionModal(title, images) {
@@ -776,6 +821,7 @@ function triggerLogoFall(logoImage) {
 function init() {
   updateStats();
   renderFilterButtons();
+  renderNoteTagFilterButtons();
   renderViewModeToggle();
   renderPatches();
   renderTechniques();
