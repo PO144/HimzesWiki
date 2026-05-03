@@ -77,7 +77,7 @@ const patches = [
   {
     title: "BSA Troop patch",
     description: "Nagyon részletes, saját vonalvastagsággal rendelkező vésett effekt (azaz a vésett részt alkotó vonalaknak két éle van)",
-    image: "./content/images/bsa/Troop760.jpg",
+    image: "./content/images/bsa/Troop760.png",
     category: "Érdekes technika",
     techniques: ["Vésett effekt", "Hímzett háttér"],
     link: "https://www.sageventure.com/store/designs/Troop760.html",
@@ -150,7 +150,7 @@ const patches = [
   title: "Gólya házi - kicsi verzió",
   description: "A foltalkotás kitökéletesedése.",
   image: "./content/images/gólya_kicsi_v0.png",
-  category: "Jó design",
+  category: "Egyéb",
   techniques: [],
   link: "",
   additionalImages: []
@@ -182,10 +182,182 @@ const patches = [
   link: "",
   additionalImages: []
   },
+  {
+    title: "BSA Camp Covid",
+    description: "Apró de részletes BSA foltok rajta, illetve hímzett akasztó",
+    image: "./content/images/bsa/CampCovid.png",
+    category: "Érdekes technika",
+    techniques: ["Hímzett akasztó", "Apró részletek"],
+    link: "https://www.sageventure.com/store/designs/CampCovid.html",
+    additionalImages: []
+  },
+  {
+    title: "BSA SeaScout Mentor",
+    description: "Egyszerű, de jól kinéző, ribbon-bar stílusú design",
+    image: "./content/images/bsa/SBMentor_wht.jpg",
+    category: "Jó design",
+    techniques: [],
+    link: "https://www.sageventure.com/store/designs/SeabadgeMentor.html",
+    additionalImages: []
+  },
+  {
+    title: "BSA Nights of camping",
+    description: "Extra kiegészítő foltokkal jelöli a fokozatokat",
+    image: "./content/images/bsa/NightsCamping.png",
+    category: "Érdekes technika",
+    techniques: ["Több darabos"],
+    link: "https://www.sageventure.com/store/designs/NightsCamping.html",
+    additionalImages: []
+  },
+  {
+    title: "BSA MB Fair",
+    description: "Érdekes geometriájú hímzett háttér, részletes kicsi foltok rajta, hímzett akasztóval",
+    image: "./content/images/bsa/MBFair15.png",
+    category: "Érdekes technika",
+    techniques: ["Hímzett akasztó", "Apró részletek"],
+    link: "https://www.sageventure.com/store/designs/MBFair15.html",
+    additionalImages: []
+  },
+  {
+    title: "BSA Olaj Valley 13 Verseny",
+    description: "",
+    image: "./content/images/bsa/OjaiValley13.png",
+    category: "Jó design",
+    techniques: [],
+    link: "https://www.sageventure.com/store/designs/OjaiValley13.html",
+    additionalImages: []
+  },
+  {
+    title: "BSA Olaj Valley 12 Verseny",
+    description: "",
+    image: "./content/images/bsa/OjaiValley12.png",
+    category: "Jó design",
+    techniques: [],
+    link: "https://www.sageventure.com/store/designs/OjaiValley12.html",
+    additionalImages: []
+  },
+  {
+    title: "BSA Valle Vidal",
+    description: "",
+    image: "./content/images/bsa/ValleVidal.png",
+    category: "Jó design",
+    techniques: ["Hímzett akasztó"],
+    link: "https://www.sageventure.com/store/designs/ValleVidal.html",
+    additionalImages: []
+  },
+  {
+    title: "BSA Sierra 8",
+    description: "",
+    image: "./content/images/bsa/Sierra8Ag.png",
+    category: "Jó design",
+    techniques: ["Hímzett akasztó"],
+    link: "https://www.sageventure.com/store/designs/Sierra8.html",
+    additionalImages: []
+  },
+  {
+    title: "BSA Hornaday",
+    description: "Úgy néz ki, mintha fémből lenne (a kiálló részek \"kopottak/fényesek\", míg a bentebbi részek \"oxidáltak\")",
+    image: "./content/images/bsa/HornadayAg.jpg",
+    category: "Érdekes technika",
+    techniques: [],
+    link: "https://www.sageventure.com/store/designs/Hornaday.html",
+    additionalImages: []
+  },
+  {
+    title: "BSA Olaj Valley 09 Verseny",
+    description: "",
+    image: "./content/images/bsa/OjaiBlack.png",
+    category: "Jó design",
+    techniques: [],
+    link: "https://www.sageventure.com/store/designs/OjaiValley09.html",
+    additionalImages: []
+  },
+  {
+    title: "BSA OCC fair",
+    description: "Vicces tehén",
+    image: "./content/images/bsa/OCCfair3.png",
+    category: "Jó design",
+    techniques: [],
+    link: "https://www.sageventure.com/store/designs/OCCfair.html",
+    additionalImages: []
+  },
+  {
+    title: "BSA Kodiak X",
+    description: "",
+    image: "./content/images/bsa/KodiakXs.png",
+    category: "Jó design",
+    techniques: [],
+    link: "https://www.sageventure.com/store/designs/KodiakX.html",
+    additionalImages: []
+  },
+  {
+    title: "BSA Kodiak",
+    description: "A \"nyom\" helyenként vésett, helyenként háttér színnel hímezve van létrehozva",
+    image: "./content/images/bsa/Beach.png",
+    category: "Érdekes design",
+    techniques: ["Vésett effekt", "Azonos színnel hímzés"],
+    link: "https://www.sageventure.com/store/designs/Beach.html",
+    additionalImages: []
+  },
+  {
+    title: "BSA SGMRC",
+    description: "Hihetetlen jól néz ki a lila cérna és a fehér alap kombója",
+    image: "./content/images/bsa/SGMRC.png",
+    category: "Jó design",
+    techniques: [],
+    link: "https://www.sageventure.com/store/designs/SGMRC.html",
+    additionalImages: []
+  },
+  {
+    title: "BSA Island Sail",
+    description: "A folt kerete és a kép \"canvas\"-a egy hajó vitorlája!",
+    image: "./content/images/bsa/IslandSail.png",
+    category: "Jó design",
+    techniques: [],
+    link: "https://www.sageventure.com/store/designs/IslandSail.html",
+    additionalImages: []
+  },
+  {
+    title: "BSA Mt. Rainier",
+    description: "Baromi részletes, de nem cluttered, nagyon szép összképpel",
+    image: "./content/images/bsa/Rainier.png",
+    category: "Jó design",
+    techniques: ["Apró részletek"],
+    link: "https://www.sageventure.com/store/designs/MtRainier.html",
+    additionalImages: []
+  },
+  {
+  title: "BSA Congressional Award",
+  description: "\"Szimulált\" kitüntetés folt alapon",
+  image: "./content/images/bsa/CongressAu.png",
+  category: "Érdekes technika",
+  techniques: ["Replikált médium"],
+  link: "https://www.sageventure.com/store/designs/Congressional.html",
+  additionalImages: []
+  },
+  {
+  title: "BSA Hiking Award",
+  description: "",
+  image: "./content/images/bsa/NatlForest.png",
+  category: "Jó design",
+  techniques: ["Több darabos"],
+  link: "https://www.sageventure.com/store/designs/NatlForest.html",
+  additionalImages: []
+  },
+  {
+  title: "BSA Angeles",
+  description: "",
+  image: "./content/images/bsa/Angeles.png",
+  category: "Jó design",
+  techniques: [],
+  link: "https://www.sageventure.com/store/designs/Angeles.html",
+  additionalImages: []
+  },
 ];
 //Jelenleg létező technikák:
 /*
 Tépőzáras folt; Hímzett háttér; Run art; Vegyes glowie és normál cérna; Azonos színnel hímzés; Kétoldalú hímzés; Vésett effekt; Színátmenet
+Hímzett akasztó; Több darabos; Apró részletek; Replikált médium
 
 */
 
