@@ -277,6 +277,8 @@ const techniques = [
 // - externalDescription: Description shown on the note card in the grid (required)
 // - internalDescription: Description shown inside the note modal (required)
 // - demoImage: Path to thumbnail / demonstrator image (optional, can be "" or omitted)
+// - tag: Optional note label. Should match one from noteTagOptions above
+//      - Opciók right now: Sanyi szervíz, Hímzés, Tervezés, Himző belsős, Rendelés menete, Egyéb
 // - extraImages: Array of image/video paths shown in the note modal under the internal description (optional, can be [])
 // - unOrdered: If true, note modal steps use non-numbered markers (optional, defaults to false)
 // - workInProgress: If true, shows a Work In Progress badge on the card and modal (optional, defaults to false)
@@ -316,6 +318,7 @@ const notes = [
     externalDescription: "Hogyan, mikor és mivel kell Sanyit megolajozni.",
     internalDescription: "Sanyit viszonylag gyakran olajozni kell! Ehhez a tőle <i>jobbra levő polcon</i> elhelyezett piros végű <b>fecskendőt</b> hasznájluk.<br>Fontos, hogy csak <b>egy csepp</b> olajat kell tenni a pontokra.<br><br>Olajozáskor érintsd a ponthoz a tű hegyét, majd <b>gyengéden</b> kezd el nyomni a dugattyút. Amint egy kicsi kijön, meg is vagy! Ha nem fedte be teljesen a kívánt részt, a hegyével szépen oda \"ecsetelheted\"! <i>(Csak az A pontnál releváns.)</i><br><br>Sanyi papiron mindig szól, amikor olajozni kell. <i><u>(Csak úgy random nem kell olajozgatni!)</u></i> Ilyenkor megjelenik egy popup a képernyőn, ami megmondja, melyik pontnak van itt az olajozási idelye. Két opció van: <i>Later</i> és <i>Done</i>; csak akkor nyomj done-t, ha megcsináltad.<i>(A done semmit nem csinál azon kívül, hogy lejegyzi sanyiban, hogy meg lett olajozva.)</i><br><sub>Amikor olajozol, kérlek figyelj oda, hogy ne olajozz össze mindent is, mert nagyon zavaró később, illetve rácsöpöghet az anyagra! </sub>",
     demoImage: "",
+    tag: "Sanyi szervíz",
     extraImages: ["./content/images/oil_sticker.png", "./content/images/shelf_syringe.png", "./content/images/syringe.png",  "./content/images/olaj_prompt.png"],
     unOrdered: true,
     workInProgress: false,

@@ -1,3 +1,5 @@
+/*Note tagek search for: NOTE TAG-EK CÍMKÉK */
+
 * {
   margin: 0;
   padding: 0;
@@ -535,6 +537,58 @@ body {
   background-color: #fee2e2;
   color: #991b1b;
 }
+
+/*NOTE TAG-EK CÍMKÉK*/
+.note-tag-badge {
+  font-size: 0.625rem;
+  padding: 0.25rem 0.5rem;
+  line-height: 1.1;
+  max-width: calc(100% - 1rem);
+  white-space: nowrap;
+}
+
+.note-card--with-tag {
+  padding-top: 2.4rem;
+}
+
+.modal-title-row .note-tag-badge {
+  position: static;
+  right: auto;
+  top: auto;
+}
+
+.tag-default,
+.tag--egyeb {
+  background-color: #e5e7eb;
+  color: #4b5563;
+}
+
+.tag--sanyi-szerviz {
+  background-color: #fbe4dd;
+  color: #b45309;
+}
+
+.tag--himzes {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.tag--tervezes {
+  background-color: #dbeafe;
+  color: #1e3a8a;
+}
+
+.tag--himzo-belsos {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.tag--rendeles-menete {
+  background-color: #dcfce7;
+  color: #3f6212;
+}
+
+/*End of note tags*/
 
 /*OLD:
 .wip-badge {

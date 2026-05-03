@@ -185,6 +185,24 @@ function escapeForSingleQuotedJsString(value) {
     .replace(/'/g, "\\'");
 }
 
+function slugifyTag(value) {
+  return String(value)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function renderNoteTagBadge(tag) {
+  if (!tag) return "";
+
+  return `
+    <span class="difficulty-badge note-tag-badge tag-default tag--${slugifyTag(tag)}">
+      ${tag}
+    </span>
+  `;
+}
 
 // Render filter buttons dynamically from categories array
 function renderFilterButtons() {
@@ -448,8 +466,8 @@ function renderNotes() {
   }
 
   grid.innerHTML = filtered.map(note => `
-    <div class="technique-card ${note.workInProgress ? 'technique-card--wip' : ''}" onclick="openNoteModal('${note.name.replace(/'/g, "\\'")}')">
-      ${note.workInProgress ? `<span class="wip-badge">Work In Progress</span>` : ""}
+    <div class="technique-card note-card ${note.tag ? 'note-card--with-tag' : ''}" onclick="openNoteModal('${note.name.replace(/'/g, "\\'")}')">
+      ${note.tag ? renderNoteTagBadge(note.tag) : ""}
       ${note.demoImage ? `<img src="${note.demoImage}" alt="${note.name}" class="technique-thumb" onerror="this.style.display='none'">` : ""}
       <div class="technique-info">
         <h4 class="technique-name">${note.name}</h4>
@@ -644,6 +662,7 @@ function openNoteModal(noteName) {
       <div class="modal-title-section">
         <div class="modal-title-row">
           <h2 class="modal-title">${note.name}</h2>
+          ${note.tag ? `<span class="difficulty-badge note-tag-badge tag-default tag--${slugifyTag(note.tag)}">${note.tag}</span>` : ""}
           ${isWorkInProgress ? `<span class="wip-badge">Work In Progress</span>` : ""}
         </div>
         <p class="modal-subtitle">${note.internalDescription || note.description || ""}</p>
