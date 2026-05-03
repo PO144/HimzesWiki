@@ -312,13 +312,13 @@ const techniques = [
 
 const notes = [
   {
-    name: "OLAJOZÁS",
+    name: "Olajozás",
     externalDescription: "Hogyan, mikor és mivel kell Sanyit megolajozni.",
     internalDescription: "Sanyit viszonylag gyakran olajozni kell! Ehhez a tőle <i>jobbra levő polcon</i> elhelyezett piros végű <b>fecskendőt</b> hasznájluk.<br>Fontos, hogy csak <b>egy csepp</b> olajat kell tenni a pontokra.<br><br>Olajozáskor érintsd a ponthoz a tű hegyét, majd <b>gyengéden</b> kezd el nyomni a dugattyút. Amint egy kicsi kijön, meg is vagy! Ha nem fedte be teljesen a kívánt részt, a hegyével szépen oda \"ecsetelheted\"! <i>(Csak az A pontnál releváns.)</i><br><br>Sanyi papiron mindig szól, amikor olajozni kell. <i><u>(Csak úgy random nem kell olajozgatni!)</u></i> Ilyenkor megjelenik egy popup a képernyőn, ami megmondja, melyik pontnak van itt az olajozási idelye. Két opció van: <i>Later</i> és <i>Done</i>; csak akkor nyomj done-t, ha megcsináltad.<i>(A done semmit nem csinál azon kívül, hogy lejegyzi sanyiban, hogy meg lett olajozva.)</i><br><sub>Amikor olajozol, kérlek figyelj oda, hogy ne olajozz össze mindent is, mert nagyon zavaró később, illetve rácsöpöghet az anyagra! </sub>",
     demoImage: "",
     extraImages: ["./content/images/oil_sticker.png", "./content/images/shelf_syringe.png", "./content/images/syringe.png",  "./content/images/olaj_prompt.png"],
     unOrdered: true,
-    workInProgress: true,
+    workInProgress: false,
     steps: [
       {
         name: "<i>\"A\"</i> PONT",
@@ -327,13 +327,18 @@ const notes = [
       },
       {
         name: "<i>\"B\"</i> PONT",
-        description: "Ezeket a pontokat <b>hetente</b> egyszer kell megolajozni. Csak cseppents be egy cseppnyi olajat a lyukakon, jó helyre fog menni.<br><i>Ahhoz, hogy az oldalánál levő lyukhoz hozzá férj, át kell állítanod a hímzőgépet az 1-es csatornára a \"Manuális színváltás\" menüponttal.</i>",
+        description: "Ezeket a pontokat <b>hetente</b> egyszer kell megolajozni. Csak cseppents be egy cseppnyi olajat a lyukakon, jó helyre fog menni.<br><i>Ahhoz, hogy az oldalánál levő lyukhoz hozzá férj, át kell állítanod a hímzőgépet az 1-es csatornára a \"Manuális színváltás\" menüponttal.</i><br><sub>(Papíron a heti olajozás után egy ideig békén kéne hagyni Sanyit, hogy az olaj lecsorogjon, azonban mi ezt általában ignoráljuk.)</sub>",
         images: ["./content/images/olajB_2.png", "./content/images/olajB.png", "./content/images/channel.png"]
       },
       {
-        name: "Egyéb olajozási pont",
+        name: "Egyéb olajozási pont 1",
         description: "<b>Néha</b> a képen mutatott felső rugókat is megolajozzuk. Ezt hátulról (ahonnan a fotó készült) tudod megtenni. <i>Egy csepp</i> elég, lefolyik még az alattuk levő rugókra is.<br><i>A képen nem látható rugókra is igaz természetesen!</i>",
         images: ["./content/images/olaj_néha.png"]
+      },
+      {
+        name: "Egyéb olajozási pont 2",
+        description: "<b>Pláne néha</b> a sínt is megolajozzuk, amin a fej csúszik.",
+        images: ["./content/images/sín_olaj.png"]
       },
     ]
   },
