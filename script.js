@@ -507,12 +507,11 @@ function renderNotes() {
   grid.innerHTML = filtered.map(note => `
     <div class="technique-card note-card ${note.tag ? 'note-card--with-tag' : ''} ${note.workInProgress ? 'technique-card--wip' : ''}" onclick="openNoteModal('${escapeForSingleQuotedJsString(note.name)}')">
       ${note.tag ? renderNoteTagBadge(note.tag) : ""}
-      ${note.workInProgress ? `<span class="wip-badge">Work In Progress</span>` : ""}
       ${note.demoImage ? `<img src="${note.demoImage}" alt="${note.name}" class="technique-thumb" onerror="this.style.display='none'">` : ""}
       <div class="technique-info">
         <h4 class="technique-name">${note.name}</h4>
         <p class="technique-description">${note.externalDescription || note.description || ""}</p>
-        <span class="technique-count">Note</span>
+        ${note.workInProgress ? `<span class="wip-badge wip-badge--note-card">Work In Progress</span>` : ""}
       </div>
     </div>
   `).join("");
