@@ -593,7 +593,7 @@ const notes = [
     tag: "Hímzés",
     extraImages: [],
     unOrdered: true,
-    workInProgress: false,
+    workInProgress: true,
     steps: [
       {
         name: "Step 1",
