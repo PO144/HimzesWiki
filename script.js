@@ -505,8 +505,9 @@ function renderNotes() {
   }
 
   grid.innerHTML = filtered.map(note => `
-    <div class="technique-card note-card ${note.tag ? 'note-card--with-tag' : ''}" onclick="openNoteModal('${note.name.replace(/'/g, "\\'")}')">
+    <div class="technique-card note-card ${note.tag ? 'note-card--with-tag' : ''} ${note.workInProgress ? 'technique-card--wip' : ''}" onclick="openNoteModal('${escapeForSingleQuotedJsString(note.name)}')">
       ${note.tag ? renderNoteTagBadge(note.tag) : ""}
+      ${note.workInProgress ? `<span class="wip-badge">Work In Progress</span>` : ""}
       ${note.demoImage ? `<img src="${note.demoImage}" alt="${note.name}" class="technique-thumb" onerror="this.style.display='none'">` : ""}
       <div class="technique-info">
         <h4 class="technique-name">${note.name}</h4>
@@ -703,7 +704,7 @@ function openNoteModal(noteName) {
 
   body.innerHTML = `
     <div class="modal-header">
-      ${note.demoImage ? `<img src="${note.demoImage}" alt="${note.name}" class="modal-demo-image" onclick="openImageViewer('${note.demoImage}')" onerror="this.style.display='none'">` : ""}
+      ${note.demoImage ? `<img src="${note.demoImage}" alt="${note.name}" class="modal-demo-image" onclick="openImageViewer('${escapeForSingleQuotedJsString(note.demoImage)}')" onerror="this.style.display='none'">` : ""}
       <div class="modal-title-section">
         <div class="modal-title-row">
           <h2 class="modal-title">${note.name}</h2>

@@ -294,7 +294,7 @@ const patches = [
     title: "BSA Kodiak",
     description: "A \"nyom\" helyenként vésett, helyenként háttér színnel hímezve van létrehozva",
     image: "./content/images/bsa/Beach.png",
-    category: "Érdekes design",
+    category: "Érdekes technika",
     techniques: ["Vésett effekt", "Azonos színnel hímzés"],
     link: "https://www.sageventure.com/store/designs/Beach.html",
     additionalImages: []
@@ -467,6 +467,8 @@ const techniques = [
   externalDescription: "Interesting stuff.",
   internalDescription: "Some more stuff",
   demoImage: "",
+  tag: "",
+  extraImages: [],
   unOrdered: true,
   workInProgress: false,
   steps: [
@@ -515,6 +517,138 @@ const notes = [
         description: "<b>Pláne néha</b> a sínt is megolajozzuk, amin a fej csúszik.",
         images: ["./content/images/sín_olaj.png"]
       },
+    ]
+  },
+  {
+    name: "Cérnák",
+    externalDescription: "Minden amit a cérnákról tudni kell",
+    internalDescription: "Some more stuff",
+    demoImage: "",
+    tag: "Hímzés",
+    extraImages: [],
+    unOrdered: true,
+    workInProgress: true,
+    steps: [
+      {
+        name: "Step 1",
+        description: "",
+        images: []
+      },
+      {
+        name: "Step 2",
+        description: "Sure is.",
+        images: ["./content/videos/video_2026-04-24_20-37-20.mp4"]
+      }
+    ]
+  },
+  {
+    name: "Felső anyagok",
+    externalDescription: "Minden amit a felső anyagokról tudni kell",
+    internalDescription: "Some more stuff",
+    demoImage: "",
+    tag: "Hímzés",
+    extraImages: [],
+    unOrdered: true,
+    workInProgress: true,
+    steps: [
+      {
+        name: "Step 1",
+        description: "",
+        images: []
+      },
+      {
+        name: "Step 2",
+        description: "Sure is.",
+        images: ["./content/videos/video_2026-04-24_20-37-20.mp4"]
+      }
+    ]
+  },
+  {
+    name: "Aláanyagok",
+    externalDescription: "Minden amit az aláanyagokról tudni kell",
+    internalDescription: "Some more stuff",
+    demoImage: "",
+    tag: "Hímzés",
+    extraImages: [],
+    unOrdered: true,
+    workInProgress: true,
+    steps: [
+      {
+        name: "Step 1",
+        description: "",
+        images: []
+      },
+      {
+        name: "Step 2",
+        description: "Sure is.",
+        images: ["./content/videos/video_2026-04-24_20-37-20.mp4"]
+      }
+    ]
+  },
+  {
+    name: "Tű típusok",
+    externalDescription: "Minden amit a hímző tűkről tudni kell",
+    internalDescription: "Some more stuff",
+    demoImage: "",
+    tag: "Hímzés",
+    extraImages: [],
+    unOrdered: true,
+    workInProgress: false,
+    steps: [
+      {
+        name: "Step 1",
+        description: "",
+        images: []
+      },
+      {
+        name: "Step 2",
+        description: "Sure is.",
+        images: ["./content/videos/video_2026-04-24_20-37-20.mp4"]
+      }
+    ]
+  },
+  {
+    name: "Tű csere",
+    externalDescription: "Hogyan cseréljünk tűt Sanyiban",
+    internalDescription: "Some more stuff",
+    demoImage: "",
+    tag: "Sanyi szervíz",
+    extraImages: [],
+    unOrdered: true,
+    workInProgress: true,
+    steps: [
+      {
+        name: "Step 1",
+        description: "",
+        images: []
+      },
+      {
+        name: "Step 2",
+        description: "Sure is.",
+        images: ["./content/videos/video_2026-04-24_20-37-20.mp4"]
+      }
+    ]
+  },
+  {
+    name: "Tű talp csere/szerelés",
+    externalDescription: "Hogyan cseréljünk/javítsunk tű talpat",
+    internalDescription: "Some more stuff",
+    demoImage: "",
+    tag: "Sanyi szervíz",
+    extraImages: [],
+    unOrdered: true,
+    workInProgress: true,
+    steps: [
+      {
+        name: "Step 1",
+        description: "",
+        images: []
+      },
+      {
+        name: "Step 2",
+        description: "Sure is.",
+        images: ["./content/videos/video_2026-04-24_20-37-20.mp4"]
+      }
     ]
   },
 ];
