@@ -78,7 +78,7 @@ const VIDEO_PLAY_BADGE = `
   <span class="media-preview-badge" aria-hidden="true">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
       <circle cx="12" cy="12" r="10" opacity="0.92"></circle>
-      <polygon points="10,8 17,12 10,16" fill="white"></polygon>
+      <polygon points="9,8 16,12 9,16" fill="white"></polygon>
     </svg>
   </span>
 `;
