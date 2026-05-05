@@ -1,6 +1,8 @@
 <h1 align="center">Hímzés Wiki / Patch Library</h1>
 
 ![Állapot](https://img.shields.io/badge/%C3%81llapot-Akt%C3%ADv-brightgreen?style=for-the-badge) ![label](https://img.shields.io/date/1776717900?style=for-the-badge&label=Akt%C3%ADv%20since&color=blue)
+<br>
+![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fhimzes-notes-worker.ors-panyi.workers.dev%2F&style=for-the-badge) ![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fhimzes-techniques-worker.ors-panyi.workers.dev%2F&style=for-the-badge) ![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fhimzes-patches-worker.ors-panyi.workers.dev%2F&style=for-the-badge)
 
 ### Mi ez?
 
