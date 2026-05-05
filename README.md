@@ -41,6 +41,8 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 - [X] Telefonon is működjön
 - [X] WIP param+sáv: narancssárga sáv noteokon és technique-eken, alul, beleírva work in progress, boolean, default false
 - [X] Notes search returns everything? <i><--Didn't get updated when description got split, searched the old nonexistent field</i>
+- [ ] Custom 404 page
+- [ ] Custon endpoint release visszaszámlálóhoz a másik repo-n
 > Technikák:
 - [ ] Puffy szivacs tut
 - [ ] Carving stamp tut
