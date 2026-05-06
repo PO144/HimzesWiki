@@ -112,12 +112,12 @@ const patches = [
   },
   {
   title: "That's what she said.",
-  description: "Funny.",
+  description: "Funny. (Glowy)",
   image: "./content/images/sheSaid.png",
   category: "Egyéb",
   techniques: [],
   link: "",
-  additionalImages: []
+  additionalImages: ["./content/images/shesaid_glow.png"]
   },
   {
   title: "Hajó 2024",
@@ -352,6 +352,15 @@ const patches = [
   techniques: [],
   link: "https://www.sageventure.com/store/designs/Angeles.html",
   additionalImages: []
+  },
+  {
+  title: "Dragon Face Roof Tile",
+  description: "",
+  image: "./content/images/ancient_edit.png",
+  category: "Jó design",
+  techniques: [],
+  link: "https://www.reddit.com/r/MachineEmbroidery/s/BsYLS6gJYx",
+  additionalImages: ["./content/images/ancient1.webp","./content/images/ancient2.webp","./content/images/ancient3.webp","./content/images/ancient4.webp"]
   },
 ];
 //Jelenleg létező technikák:
