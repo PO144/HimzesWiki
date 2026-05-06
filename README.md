@@ -34,7 +34,7 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 - [X] 10 klikk leesik a cérna easter egg (shake on click)
 - [ ] Debug: vékonyabb képernyőn rossz: additional images, a difficulty a noteokon rálóg
 - [ ] Footer with credits/év ami dátumból szedi és folyton frissül
-- [ ] Note kategóriák, de jobb felső difficulty taggel jelölve
+- [X] Note kategóriák, de jobb felső difficulty taggel jelölve
 - [ ] Jobb szöveg formázás (pl. noteokba fontos szövegnek "important" class, és akkor pl. sötét zöld színben és kap szürke hátteret)
 - [X] Used by a technique-s modal-nál, ami kilistázza gelériában az összes folt primary képét, ami használja
 - [X] Függőlegesen is adaptív oszlopok a patch gallery view-ban

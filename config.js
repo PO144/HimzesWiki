@@ -610,22 +610,27 @@ const notes = [
   {
     name: "Tű csere",
     externalDescription: "Hogyan cseréljünk tűt Sanyiban",
-    internalDescription: "Some more stuff",
+    internalDescription: "A folyamat gyors, és egyszerű, de ettől még –mint minden szervíz– <b>figyelmet</b> és <b>elővigyázatosságot</b> igényel.<br>Ha nem tudod, hogy melyik fajtájú tűt kéne betenni, olvasd el a <i><b>Tű típusok</b></i> note-ot.<br><sub>(Ha szeretnéd a frissen behelyezett tű magasságát extrán ellenőrizni, olvasd el a <i>Tű magasság ellenőrzése</i> note-ot.) — Nem igazán szükséges tűcsere után, csak ha rakoncátlankodik.</sub>",
     demoImage: "",
     tag: "Sanyi szervíz",
-    extraImages: [],
-    unOrdered: true,
-    workInProgress: true,
+    extraImages: ["./content/images/tucsere_diagram.png"],
+    unOrdered: false,
+    workInProgress: false,
     steps: [
       {
-        name: "Step 1",
-        description: "",
-        images: []
+        name: "Lazítsd meg a tűszorító csavart",
+        description: "<b><u>>FONTOS<</u> Csak annyira lazítsd meg, hogy a tűt ki tudd venni a tűtartóból.</b> (~2 fordulat megteszi)<br>(<i>Ha túlságosan meglazítod/kicsavarod, a felette levő rugó le fogja lökni a tűtartó szerkezetet -a tűvel eggyüt- ami rossz!)</i>",
+        images: ["./content/images/tucsavar.png"]
       },
       {
-        name: "Step 2",
-        description: "Sure is.",
-        images: ["./content/videos/video_2026-04-24_20-37-20.mp4"]
+        name: "Húzd ki lefele a tűt",
+        description: "Lefele, a leszorító talp lyukán keresztül vedd ki a régi tűt.",
+        images: ["./content/images/tu_ki.png"]
+      },
+      {
+        name: "Tedd be az új tűt, majd szorítsd meg a tűszorító csavart",
+        description: "A tűt told fel <i>ütközésig</i> (standard hosszúságnál*).<br><b>Mire figyelj:</b><br>    > A tű szeme <b>nézzen előre</b> (azaz feléd)<br>    > A tű vége legyen egy magasságban a többivel<br>    > Véletlenül se sérült tűt** tegyél be újként!<br><sub>* Több, különböző hosszúságú tűnk is van jelenleg, amit mi kind of ignorálunk, a lényeg, hogy a <b>tű hegye egy magasságban legyen a többivel</b>, és rendesen be legyen fogva.<br>** A tűs dobozban vannak tárolva a sérült/elhasznált tűk is, figyelj oda, hogy mit veszel ki újként.</sub>",
+        images: []
       }
     ]
   },
