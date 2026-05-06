@@ -24,6 +24,10 @@ Ez egy egyszerű, főként magamnak (AI-al) összedobott weboldal, ahol összegy
 
 #### To do/to add:
 
+- [ ] Mi a technika? Mi számít tényleg annak, mi az, ami inkább csak tulajdonság (pl apró részletek vs kétoldalú) | igazi tech: kétold | szivacs, többi mehet note-ba
+- [ ] Melyik qualifikál igazából érdekes technikának? A többség inkább át kéne menjen a "jó design"-ba
+- [ ] Illene a sok bsa importáltat megszerkeszteni -> description, jobb technika tagek
+- [ ] Irl betenni: kártyás folt, camp cody
 > Webdev:
 - [X] Weblap title
 - [X] Weblap favicon

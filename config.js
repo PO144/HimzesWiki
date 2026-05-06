@@ -638,7 +638,7 @@ const notes = [
       },
       {
         name: "Tedd be az új tűt, majd szorítsd meg a tűszorító csavart",
-        description: "A tűt told fel <i>ütközésig</i> (standard hosszúságnál*).<br><b>Mire figyelj:</b><br>    > A tű szeme <b>nézzen előre</b> (azaz feléd)<br>    > A tű vége legyen egy magasságban a többivel<br>    > Véletlenül se sérült tűt** tegyél be újként!<br><sub>* Több, különböző hosszúságú tűnk is van jelenleg, amit mi kind of ignorálunk, a lényeg, hogy a <b>tű hegye egy magasságban legyen a többivel</b>, és rendesen be legyen fogva.<br>** A tűs dobozban vannak tárolva a sérült/elhasznált tűk is, figyelj oda, hogy mit veszel ki újként.</sub>",
+        description: "A tűt told fel <i>ütközésig</i> (standard hosszúságnál*).<br><b>Mire figyelj:</b><br>    > A tű szeme <b>nézzen előre</b> (azaz feléd)<br>    > A tű vége legyen egy magasságban a többivel<br>    > Véletlenül se sérült tűt** tegyél be újként!<br><br><sub>* Több, különböző hosszúságú tűnk is van jelenleg, amit mi kind of ignorálunk, a lényeg, hogy a <b>tű hegye egy magasságban legyen a többivel</b>, és rendesen be legyen fogva.<br>** A tűs dobozban vannak tárolva a sérült/elhasznált tűk is, figyelj oda, hogy mit veszel ki újként.</sub>",
         images: []
       }
     ]
